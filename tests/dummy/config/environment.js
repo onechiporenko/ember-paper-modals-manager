@@ -44,7 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = '/ember-bootstrap-modals-manager/';
+    ENV.rootURL = '/ember-paper-modals-manager/';
     // here you can enable a production-specific feature
   }
 
