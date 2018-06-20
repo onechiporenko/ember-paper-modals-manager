@@ -1,0 +1,45 @@
+{{#paper-dialog
+  fullscreen=options.fullscreen
+  escapeToClose=options.escapeToClose
+  opaque=options.opaque
+  focusOnOpen=options.focusOnOpen
+  clickOutsideToClose=options.clickOutsideToClose
+  closeTo=options.closeTo
+  openFrom=options.openFrom
+  origin=options.origin
+  parent=options.parent
+  onClose=(action "decline")
+}}
+  {{#paper-dialog-content}}
+    {{#if options.titleComponent}}
+      {{component
+        options.titleComponent
+        options=options
+      }}
+    {{else}}
+      <h2 class="md-title">{{options.title}}</h2>
+    {{/if}}
+
+    {{#if options.bodyComponent}}
+      {{component
+        options.bodyComponent
+        options=options
+      }}
+    {{else}}
+      <p>{{options.body}}</p>
+    {{/if}}
+  {{/paper-dialog-content}}
+  {{#paper-dialog-actions class="layout-row"}}
+    <span class="flex"></span>
+    {{#if options.footerComponent}}
+      {{component
+        options.footerComponent
+        options=options
+        confirm=(action modal.submit)
+      }}
+    {{else}}
+      <p>{{options.footer}}</p>
+      {{#paper-button primary=true onClick=(action "confirm")}}{{options.confirm}}{{/paper-button}}
+    {{/if}}
+  {{/paper-dialog-actions}}
+{{/paper-dialog}}

@@ -1,3 +1,14 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+{{#paper-content}}
+  <div class="layout-row flex">
+    <div class="flex">
+      <h1>{{paper-icon "input"}} Ember Paper Modals Manager</h1>
+      <h3>Install</h3>
+      <pre>ember i ember-paper-modals-manager</pre>
+      <h3>Check <a
+        href="https://onechiporenko.github.io/ember-paper-modals-manager/docs/modules/EmberPaperModalsManager.html">API
+        docs</a>.</h3>
+    </div>
+  </div>
+  {{outlet}}
+{{/paper-content}}
+{{modals-container}}
