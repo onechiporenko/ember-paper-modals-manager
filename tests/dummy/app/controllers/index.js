@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import {inject as service} from '@ember/service';
 import {computed, get, set} from '@ember/object';
-import {not} from '@ember/object/computed';
+import {equal, not} from '@ember/object/computed';
 import {A} from '@ember/array';
 
 export default Controller.extend({
@@ -32,12 +32,15 @@ export default Controller.extend({
 
   disallowEmptyPrompt: false,
 
-  showLabel: false,
-  animate: false,
-  striped: false,
+  colorType: 'primary',
+  warn: equal('colorType', 'warn'),
+  accent: equal('colorType', 'accent'),
+  progressCircular: false,
   notStriped: not('striped'),
   progressWillFail: false,
   processWillFail: false,
+  circularDiameter: 25,
+  circularStrokeRatio: 0.1,
 
   addMessage(msg) {
     get(this, 'messages').pushObject(msg);
@@ -63,7 +66,8 @@ export default Controller.extend({
       set(this, 'options', options);
       get(this, 'modalsManager')
         .alert(options)
-        .then(() => this.addMessage('Alert was confirmed'));
+        .then(() => this.addMessage('Alert was confirmed'))
+        .catch(() => this.addMessage('Alert was confirmed'));
     },
     showConfirmModal() {
       const options = {
@@ -119,10 +123,13 @@ export default Controller.extend({
         title: 'Progress Modal Title',
         body: '',
         promises: this.generatePromiseFactoriesList(5),
-        showLabel: get(this, 'showLabel'),
-        striped: get(this, 'striped'),
-        animate: get(this, 'animate'),
-        type: get(this, 'type')
+        circular: get(this, 'progressCircular'),
+        circularAccent: get(this, 'accent'),
+        circularWarn: get(this, 'warn'),
+        circularDiameter: get(this, 'circularDiameter'),
+        circularStrokeRatio: get(this, 'circularStrokeRatio'),
+        linearAccent: get(this, 'accent'),
+        linearWarn: get(this, 'warn')
       };
       set(this, 'options', options);
       get(this, 'modalsManager')
@@ -139,9 +146,12 @@ export default Controller.extend({
     },
     showProcessModal() {
       const options = {
-        body: 'Some long process (you must add font-awesome to your project to use `fa`-icons)',
-        iconClass: 'text-center fa fa-spinner fa-spin fa-3x fa-fw',
+        body: 'Some long process',
         title: '',
+        circularAccent: get(this, 'accent'),
+        circularWarn: get(this, 'warn'),
+        circularDiameter: get(this, 'circularDiameter'),
+        circularStrokeRatio: get(this, 'circularStrokeRatio'),
         process: () => new Promise((resolve, reject) => setTimeout(() => {
           get(this, 'processWillFail') ? reject('some error') : resolve('some result');
         }, 3000))
@@ -224,10 +234,13 @@ export default Controller.extend({
         bodyComponent: 'custom-progress-body',
         footerComponent: 'custom-progress-footer',
         promises: this.generatePromiseFactoriesList(5),
-        showLabel: get(this, 'showLabel'),
-        striped: get(this, 'striped'),
-        animate: get(this, 'animate'),
-        type: get(this, 'type')
+        circular: get(this, 'progressCircular'),
+        circularAccent: get(this, 'accent'),
+        circularWarn: get(this, 'warn'),
+        circularDiameter: get(this, 'circularDiameter'),
+        circularStrokeRatio: get(this, 'circularStrokeRatio'),
+        linearAccent: get(this, 'accent'),
+        linearWarn: get(this, 'warn')
       };
       set(this, 'options', options);
       get(this, 'modalsManager')
@@ -245,11 +258,14 @@ export default Controller.extend({
     showCustomProcessModal() {
       const options = {
         title: 'Process Modal Title',
-        body: 'Some long process (you must add font-awesome to your project to use `fa`-icons)',
+        body: 'Some long process',
         titleComponent: 'custom-process-header',
         bodyComponent: 'custom-process-body',
         footerComponent: 'custom-process-footer',
-        iconClass: 'text-center fa fa-spinner fa-spin fa-3x fa-fw',
+        circularAccent: get(this, 'accent'),
+        circularWarn: get(this, 'warn'),
+        circularDiameter: get(this, 'circularDiameter'),
+        circularStrokeRatio: get(this, 'circularStrokeRatio'),
         process: () => new Promise((resolve, reject) => setTimeout(() => {
           get(this, 'processWillFail') ? reject('some error') : resolve('some result');
         }, 3000))

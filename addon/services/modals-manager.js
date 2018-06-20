@@ -1,4 +1,3 @@
-import {computed} from '@ember/object';
 import ModalsManager from 'ember-modals-manager-internal/services/modals-manager';
 
 /**
@@ -6,20 +5,20 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * `ember-paper-modals-manager` is an Ember-addon that provides a simple mechanism for interaction with user using modals. This addon is based on modals from `ember-paper`.
  *
- * **Restriction** from the [Bootstrap#modals](https://getbootstrap.com/docs/3.3/javascript/#modals):
+ * **Restriction**
  *
  * > ##### Multiple open modals not supported
  *
  * ## Demo
  *
- * You can check how this addon works on [demo-page](https://onechiporenko.github.io/ember-bootstrap-modals-manager/).
+ * You can check how this addon works on [demo-page](https://onechiporenko.github.io/ember-paper-modals-manager/).
  *
  * ## Install
  *
  * **Firstly:**
  *
  * ```bash
- * ember i ember-bootstrap-modals-manager
+ * ember i ember-paper-modals-manager
  * ```
  *
  * **Secondly:**
@@ -221,7 +220,7 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ### `progress`
  *
- * This modal used to show a progress-bar for chain of Promises executed one by one. This modal doesn't have any controls like confirm/decline-buttons in the footer or "&times;" in the header and can't be closed by pressing `Esc` or clicking somewhere outside a modal. Modal will be confirmed and self-closed after all promises are fulfilled or it will be declined (and self-closed) if at least one promise becomes rejected.
+ * This modal used to show a progress-bar for chain of Promises executed one by one. This modal doesn't have any controls like confirm/decline-buttons in the footer. Modal will be confirmed and self-closed after all promises are fulfilled or it will be declined (and self-closed) if at least one promise becomes rejected.
  *
  * ```js
  * import Controller from '@ember/controller';
@@ -263,7 +262,15 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  * });
  * ```
  *
- * Options `striped`, `animate`, `type` and `showLabel` will be passed to the progress-bar. See docs for [ember-bootstrap#progress](http://www.ember-bootstrap.com/#/components/progress)
+ * `progress` has several extra options:
+ *
+ * * `circular` - `true` for `circular` progress-bar, `false` - for `linear` progress-bar (default)
+ * * `circularAccent` - `accent`-binding for `circular` progress-bar (default `false`)
+ * * `circularWarn` - `warn`-binding for `circular` progress-bar (default `false`)
+ * * `circularDiameter` - `diameter`-binding for `circular` progress-bar (default `25`)
+ * * `circularStrokeRatio` - `strokeRadio`-binding for `circular` progress-bar (default `0.1`)
+ * * `linearAccent` - `accent`-binding for `linear` progress-bar (default `false`)
+ * * `linearWarn` - `warn`-binding for `linear` progress-bar (default `false`)
  *
  * **IMPORTANT** Here `options.promises` is a list of _FUNCTIONS_ that returns Promises!
  *
@@ -285,7 +292,6 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *       get(this, 'modalsManager')
  *         .process({
  *           body: 'Some text goes here',
- *           iconClass: 'text-center fa fa-spinner fa-spin fa-3x fa-fw',
  *           title: '',
  *           // this is required
  *           process: () => new Promise(resolve => setTimeout(resolve(1), 100))
@@ -302,6 +308,13 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *   }
  * });
  * ```
+ *
+ * `process` has several extra options:
+ *
+ * * `circularAccent` - `accent`-binding for `circular` progress-bar (default `false`)
+ * * `circularWarn` - `warn`-binding for `circular` progress-bar (default `false`)
+ * * `circularDiameter` - `diameter`-binding for `circular` progress-bar (default `25`)
+ * * `circularStrokeRatio` - `strokeRadio`-binding for `circular` progress-bar (default `0.1`)
  *
  * **IMPORTANT** Here `options.process` is a _FUNCTION_ that return Promise!
  *
@@ -344,7 +357,13 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-alert-header.hbs}}
- * <h4 class="modal-title"><i class="glyphicon glyphicon-warning-sign"></i> {{options.title}}</h4>
+ * {{#paper-toolbar}}
+ *   {{#paper-toolbar-tools}}
+ *     <h2 class="md-title">{{paper-icon icon="warning"}} Custom Alert Title Component</h2>
+ *     <span class="flex"></span>
+ *     {{#paper-button iconButton=true onClick=(action decline)}}{{paper-icon "close"}}{{/paper-button}}
+ *   {{/paper-toolbar-tools}}
+ * {{/paper-toolbar}}
  * ```
  *
  * #### Body Component
@@ -353,7 +372,7 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-alert-body.hbs}}
- * <p class="alert alert-info">{{options.body}}</p>
+ * <p>{{options.body}}</p>
  * ```
  *
  * #### Footer Component
@@ -362,8 +381,8 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-alert-footer.hbs}}
- * {{options.footer}}
- * {{#bs-button onClick=(action confirm)}}Confirm{{/bs-button}}
+ * Custom Alert Footer Component
+ * {{#paper-button type="primary" onClick=(action confirm)}}Confirm{{/paper-button}}
  * ```
  *
  * ### `confirm`
@@ -400,7 +419,13 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-confirm-title.hbs}}
- * <h4 class="modal-title"><i class="glyphicon glyphicon-question-sign"></i> {{options.title}}</h4>
+ * {{#paper-toolbar}}
+ *   {{#paper-toolbar-tools}}
+ *     <h2 class="md-title">{{paper-icon icon="warning"}} Custom Confirm Title Component</h2>
+ *     <span class="flex"></span>
+ *     {{#paper-button iconButton=true onClick=(action decline)}}{{paper-icon "close"}}{{/paper-button}}
+ *   {{/paper-toolbar-tools}}
+ * {{/paper-toolbar}}
  * ```
  *
  * #### Body Component
@@ -409,7 +434,7 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-confirm-body.hbs}}
- * <p class="alert alert-success">{{options.body}}</p>
+ * <p>{{options.body}}</p>
  * ```
  *
  * #### Footer Component
@@ -418,9 +443,9 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-confirm-footer.hbs}}
- * {{options.footer}}
- * {{#bs-button onClick=(action decline)}}Decline{{/bs-button}}
- * {{#bs-button onClick=(action confirm)}}Confirm{{/bs-button}}
+ * Custom Confirm Footer Component
+ * {{#paper-button onClick=(action decline)}}Decline{{/paper-button}}
+ * {{#paper-button onClick=(action confirm) type="primary"}}Confirm{{/paper-button}}
  * ```
  *
  * ### `prompt`
@@ -457,7 +482,13 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! component/custom-prompt-header.hbs}}
- * <h4 class="modal-title"><i class="glyphicon glyphicon-info-sign"></i> {{options.header}}</h4>
+ * {{#paper-toolbar}}
+ *   {{#paper-toolbar-tools}}
+ *     <h2 class="md-title">{{paper-icon icon="warning"}} Custom Prompt Title Component</h2>
+ *     <span class="flex"></span>
+ *     {{#paper-button iconButton=true onClick=(action decline)}}{{paper-icon "close"}}{{/paper-button}}
+ *   {{/paper-toolbar-tools}}
+ * {{/paper-toolbar}}
  * ```
  *
  * #### Body Component
@@ -466,8 +497,10 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-prompt-body.hbs}}
- * <p class="alert alert-warning">{{options.body}}</p>
- * <input type="text" class="form-control" oninput={{action updatePromptValue value="target.value"}} />
+ * <p>Custom Prompt Body Component</p>
+ * {{#paper-form as |form|}}
+ *   {{form.input value=promptValue onChange=updatePromptValue}}
+ * {{/paper-form}}
  * ```
  *
  * #### Footer Component
@@ -476,9 +509,9 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-prompt-footer.hbs}}
- * {{options.footer}}
- * {{#bs-button onClick=(action decline)}}Decline{{/bs-button}}
- * {{#bs-button onClick=(action confirm)}}Confirm{{/bs-button}}
+ * Custom Prompt Footer Component
+ * {{#paper-button onClick=(action decline)}}Decline{{/paper-button}}
+ * {{#paper-button onClick=(action confirm) disabled=confirmDisabled type="primary"}}Confirm{{/paper-button}}
  * ```
  *
  * ### `checkConfirm`
@@ -514,7 +547,13 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! component/custom-check-confirm-header.hbs}}
- * <h4 class="modal-title"><i class="glyphicon glyphicon-asterisk"></i> Custom Check Confirm Title Component</h4>
+ * {{#paper-toolbar}}
+ *   {{#paper-toolbar-tools}}
+ *     <h2 class="md-title">{{paper-icon icon="warning"}} Custom Check Confirm Title Component</h2>
+ *     <span class="flex"></span>
+ *     {{#paper-button iconButton=true onClick=(action decline)}}{{paper-icon "close"}}{{/paper-button}}
+ *   {{/paper-toolbar-tools}}
+ * {{/paper-toolbar}}
  * ```
  *
  * #### Body Component
@@ -523,14 +562,10 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-check-confirm-body.hbs}}
- * <p class="alert alert-danger">Custom Check Confirm Body Component</p>
- * <div class="form-group">
- *   <div class="checkbox">
- *     <label>
- *       <input type="checkbox" onchange={{action updatePromptValue value="target.value"}}/> Custom Label
- *     </label>
- *   </div>
- * </div>
+ * <p>Custom Check Confirm Body Component</p>
+ * {{#paper-form}}
+ *   {{paper-checkbox value=promptValue onChange=updatePromptValue}}
+ * {{/paper-form}}
  * ```
  *
  * #### Footer Component
@@ -539,8 +574,9 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-check-confirm-footer.hbs}}
- * Custom Check Confirm Footer Component {{#bs-button onClick=(action decline)}}Decline{{/bs-button}} {{#bs-button
- * disabled=confirmDisabled onClick=(action confirm) type="primary"}}Confirm{{/bs-button}}
+ * Custom Check Confirm Footer Component
+ * {{#paper-button onClick=(action decline)}}Decline{{/paper-button}}
+ * {{#paper-button disabled=confirmDisabled onClick=(action confirm) type="primary"}}Confirm{{/paper-button}}
  * ```
  *
  * ### `promptConfirm`
@@ -577,7 +613,13 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  * It takes a single parameter `options`. Its value is an object passed to the `modalsManager.promptConfirm`.
  *
  * ```hbs
- * <h4 class="modal-title"><i class="glyphicon glyphicon-asterisk"></i> {{options.title}}</h4>
+ * {{#paper-toolbar}}
+ *   {{#paper-toolbar-tools}}
+ *     <h2 class="md-title">{{paper-icon icon="warning"}} Custom Prompt Confirm Title Component</h2>
+ *     <span class="flex"></span>
+ *     {{#paper-button iconButton=true onClick=(action decline)}}{{paper-icon "close"}}{{/paper-button}}
+ *   {{/paper-toolbar-tools}}
+ * {{/paper-toolbar}}
  * ```
  *
  * #### Body Component
@@ -586,11 +628,11 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-prompt-confirm-body.hbs}}
- * <p class="alert alert-danger">
- *   {{options.body}}
- *   Please enter a "{{options.promptValue}}" without quotes
- * </p>
- * <input type="text" class="form-control" oninput={{action updatePromptValue value="target.value"}} />
+ * <p>Custom Prompt Confirm Body Component</p>
+ * <p>Please enter a "{{options.promptValue}}" without quotes</p>
+ * {{#paper-form as |form|}}
+ *   {{form.input value=promptValue onChange=updatePromptValue}}
+ * {{/paper-form}}
  * ```
  *
  * #### Footer Component
@@ -599,9 +641,9 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * ```hbs
  * {{! components/custom-prompt-confirm-footer.hbs}}
- * {{options.footer}}
- * {{#bs-button onClick=(action decline)}}Decline{{/bs-button}}
- * {{#bs-button disabled=confirmDisabled onClick=(action confirm)}}Confirm{{/bs-button}}
+ * Custom Prompt Confirm Footer Component
+ * {{#paper-button onClick=(action decline)}}Decline{{/paper-button}}
+ * {{#paper-button disabled=confirmDisabled onClick=(action confirm) type="primary"}}Confirm{{/paper-button}}
  * ```
  *
  * ### `progress`
@@ -654,7 +696,12 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  * It takes a single parameter `options`. Its value is an object passed to the `modalsManager.progress`.
  *
  * ```hbs
- * <h4 class="modal-title"><i class="glyphicon glyphicon-info-sign"></i> Custom Progress Title Component</h4>
+ * {{! components/custom-progress-header.hbs}}
+ * {{#paper-toolbar}}
+ *   {{#paper-toolbar-tools}}
+ *     <h2 class="md-title">{{paper-icon icon="warning"}} Custom Progress Title Component</h2>
+ *   {{/paper-toolbar-tools}}
+ * {{/paper-toolbar}}
  * ```
  *
  * #### Body Component
@@ -662,16 +709,23 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  * It takes four parameters. First one is an options described before. Second one is an `overall` - number of `promises` passed to the modal. Third one is a `done` - number of already fulfilled promises. Fourth one is a `progress` - calculated percentage value of the fulfilled promises that me be used in the progress-bar. Usage example:
  *
  * ```hbs
- * <p class="alert alert-info">Custom Progress Body Component {{done}} / {{overall}}</p>
- *{{#bs-progress as |p|}}
- *  {{p.bar
- *    value=progress
- *    showLabel=options.showLabel
- *    striped=options.striped
- *    animate=options.animate
- *    type=options.type
- *  }}
- *{{/bs-progress}}
+ * <p>Custom Progress Body Component {{done}} / {{overall}}</p>
+ * {{#if options.circular}}
+ *   {{paper-progress-circular
+ *     value=progress
+ *     class=options.circularClass
+ *     accent=options.circularAccent
+ *     warn=options.circularWarn
+ *     diameter=options.circularDiameter
+ *     strokeRatio=options.circularStrokeRatio
+ *   }}
+ * {{else}}
+ *   {{paper-progress-linear
+ *     value=progress
+ *     accent=options.linearAccent
+ *     warn=options.linearWarn
+ *   }}
+ *{{/if}}
  * ```
  *
  * #### Footer Component
@@ -713,13 +767,42 @@ import ModalsManager from 'ember-modals-manager-internal/services/modals-manager
  *
  * It takes a single parameter `options`. Its value is an object passed to the `modalsManager.process`.
  *
+ * ```hbs
+ * {{! components/custom-process-header.hbs }}
+ * {{#paper-toolbar}}
+ *   {{#paper-toolbar-tools}}
+ *     <h2 class="md-title">{{paper-icon icon="warning"}} Custom Process Title Component</h2>
+ *   {{/paper-toolbar-tools}}
+ * {{/paper-toolbar}}
+ * ```
+ *
  * #### Body Component
  *
  * It takes a single parameter `options`. Its value is an object passed to the `modalsManager.process`.
  *
+ * ```hbs
+ * {{! components/custom-process-body.hbs }}
+ * <p>Custom Process Body Component</p>
+ * <p>{{options.body}}</p>
+ * <div class="layout-row layout-align-center">
+ *   {{paper-progress-circular
+ *     class=options.circularClass
+ *     accent=options.circularAccent
+ *     warn=options.circularWarn
+ *     diameter=options.circularDiameter
+ *     strokeRatio=options.circularStrokeRatio
+ *   }}
+ * </div>
+ * ```
+ *
  * #### Footer Component
  *
  * It takes a single parameter `options`. Its value is an object passed to the `modalsManager.process`.
+ *
+ * ```hbs
+ * {{! components/custom-process-footer.hbs }}
+ * <p>Custom Process Footer Component</p>
+ * ```
  *
  * @module EmberPaperModalsManager
  * @main EmberPaperModalsManager

@@ -1,10 +1,17 @@
-<p class="alert alert-info">Custom Progress Body Component {{done}} / {{overall}}</p>
-{{#bs-progress as |p|}}
-  {{p.bar
+<p>Custom Progress Body Component {{done}} / {{overall}}</p>
+{{#if options.circular}}
+  {{paper-progress-circular
     value=progress
-    showLabel=options.showLabel
-    striped=options.striped
-    animate=options.animate
-    type=options.type
+    class=options.circularClass
+    accent=options.circularAccent
+    warn=options.circularWarn
+    diameter=options.circularDiameter
+    strokeRatio=options.circularStrokeRatio
   }}
-{{/bs-progress}}
+{{else}}
+  {{paper-progress-linear
+    value=progress
+    accent=options.linearAccent
+    warn=options.linearWarn
+  }}
+{{/if}}

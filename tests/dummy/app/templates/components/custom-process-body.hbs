@@ -1,5 +1,11 @@
-<p class="alert alert-info">Custom Process Body Component</p>
-<p class="alert alert-info">{{options.body}}</p>
-{{#if options.iconClass}}
-  <p class="text-center"><i class={{options.iconClass}}></i></p>
-{{/if}}
+<p>Custom Process Body Component</p>
+<p>{{options.body}}</p>
+<div class="layout-row layout-align-center">
+  {{paper-progress-circular
+    class=options.circularClass
+    accent=options.circularAccent
+    warn=options.circularWarn
+    diameter=options.circularDiameter
+    strokeRatio=options.circularStrokeRatio
+  }}
+</div>

@@ -4,7 +4,7 @@ export function initialize(appInstance) {
   const modalsManager = appInstance.lookup('service:modals-manager');
   setProperties(get(modalsManager, 'defaultOptions'), {
     clickOutsideToClose: false,
-    escapeToClose: true,
+    escapeToClose: false,
     focusOnOpen: true,
     fullscreen: false,
     opaque: true,
@@ -12,6 +12,13 @@ export function initialize(appInstance) {
     openFrom: '',
     origin: '',
     parent: '',
+    circularDiameter: 25,
+    circularStrokeRatio: 0.1,
+    circularClass: '',
+    circularAccent: false,
+    circularWarn: false,
+    linearAccent: false,
+    linearWarn: false
   });
 }
 

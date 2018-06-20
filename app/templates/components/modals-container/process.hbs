@@ -1,15 +1,29 @@
-{{#bs-modal open=modalIsOpened keyboard=false backdropClose=false onSubmit=(action "confirm") onHide=(action "decline") as |modal|}}
-  {{#modal.header closeButton=false}}
-    {{#if options.titleComponent}}
-      {{component
-        options.titleComponent
-        options=options
-      }}
-    {{else}}
-      {{#bs-modal/header/title}}{{options.title}}{{/bs-modal/header/title}}
-    {{/if}}
-  {{/modal.header}}
-  {{#modal.body}}
+{{#paper-dialog
+  fullscreen=options.fullscreen
+  escapeToClose=options.escapeToClose
+  opaque=options.opaque
+  focusOnOpen=options.focusOnOpen
+  clickOutsideToClose=options.clickOutsideToClose
+  closeTo=options.closeTo
+  openFrom=options.openFrom
+  origin=options.origin
+  parent=options.parent
+  onClose=(action "decline")
+}}
+  {{#if options.titleComponent}}
+    {{component
+      options.titleComponent
+      options=options
+      confirm=(action "confirm")
+      decline=(action "decline")
+    }}
+  {{/if}}
+  {{#paper-dialog-content}}
+
+    {{#unless options.titleComponent}}
+      <h2 class="md-title">{{options.title}}</h2>
+    {{/unless}}
+
     {{#if options.bodyComponent}}
       {{component
         options.bodyComponent
@@ -17,17 +31,24 @@
       }}
     {{else}}
       <p>{{options.body}}</p>
-      {{#if options.iconClass}}
-        <p class="text-center"><i class={{options.iconClass}}></i></p>
-      {{/if}}
+      <div class="layout-row layout-align-center">
+        {{paper-progress-circular
+          class=options.circularClass
+          accent=options.circularAccent
+          warn=options.circularWarn
+          diameter=options.circularDiameter
+          strokeRatio=options.circularStrokeRatio
+        }}
+      </div>
     {{/if}}
-  {{/modal.body}}
-  {{#modal.footer}}
+  {{/paper-dialog-content}}
+  {{#paper-dialog-actions class="layout-row"}}
+    <span class="flex"></span>
     {{#if options.footerComponent}}
       {{component
         options.footerComponent
         options=options
       }}
     {{/if}}
-  {{/modal.footer}}
-{{/bs-modal}}
+  {{/paper-dialog-actions}}
+{{/paper-dialog}}

@@ -10,15 +10,19 @@
   parent=options.parent
   onClose=(action "decline")
 }}
+  {{#if options.titleComponent}}
+    {{component
+      options.titleComponent
+      options=options
+      confirm=(action "confirm")
+      decline=(action "decline")
+    }}
+  {{/if}}
   {{#paper-dialog-content}}
-    {{#if options.titleComponent}}
-      {{component
-        options.titleComponent
-        options=options
-      }}
-    {{else}}
+
+    {{#unless options.titleComponent}}
       <h2 class="md-title">{{options.title}}</h2>
-    {{/if}}
+    {{/unless}}
 
     {{#if options.bodyComponent}}
       {{component
@@ -35,7 +39,8 @@
       {{component
         options.footerComponent
         options=options
-        confirm=(action modal.submit)
+        confirm=(action "confirm")
+        decline=(action "decline")
       }}
     {{else}}
       <p>{{options.footer}}</p>

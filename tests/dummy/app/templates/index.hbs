@@ -1,5 +1,5 @@
 <div class="layout-row flex">
-  <div class="flex-50 demo">
+  <div class="flex-60 demo">
     <h3>Default modals:</h3>
     {{#paper-button raised=true class="alert-modal" onClick=(action "showAlertModal")}}Alert Modal{{/paper-button}}
     {{#paper-button raised=true class="confirm-modal" onClick=(action "showConfirmModal")}}Confirm Modal{{/paper-button}}
@@ -18,36 +18,74 @@
     {{#paper-button raised=true class="custom-progress-modal" onClick=(action "showCustomProgressModal")}}Progress Modal{{/paper-button}}
     {{#paper-button raised=true class="custom-process-modal" onClick=(action "showCustomProcessModal")}}Process Modal{{/paper-button}}
     <h3>Settings:</h3>
-    {{#paper-form as |form|}}
+    {{#paper-form}}
       <h4>Prompt:</h4>
       {{paper-checkbox value=disallowEmptyPrompt class="disallow-empty" label="Disallow empty prompt" onChange=(action (mut disallowEmptyPrompt))}}
       <h4>Progress:</h4>
-      <div class="row">
-        <div class="col-md-6">
-          {{paper-checkbox value=showLabel class="progress-show-label" label="Show label in the progress bar" onChange=(action (mut showLabel))}}
-          {{#paper-select
-            label="State"
-            options=typeChoices
-            selected=userState
-            value=type
-            onChange=(action (mut type))
-          as |t|}}
-            {{t}}
-          {{/paper-select}}
-
-        </div>
-        <div class="col-md-6">
-          {{paper-checkbox value=striped class="progress-striped" label="Progress bar is striped" onChange=(action (mut striped))}}
-          {{paper-checkbox value=anumated class="progress-animate" disabled=notStriped label="Progress bar is animated" onChange=(action (mut animated))}}
+      <div class="layout-row flex">
+        <div class="flex-50">
           {{paper-checkbox value=progressWillFail class="progress-will-fail" label="Progress will fail" onChange=(action (mut progressWillFail))}}
         </div>
+        <div class="flex-50">
+          {{paper-checkbox value=progressCircular class="progress-circular" label="Progress bar is circular" onChange=(action (mut progressCircular))}}
+        </div>
       </div>
-      <h4>Process</h4>
+      <h4>Process:</h4>
       {{paper-checkbox value=processWillFail class="process-will-fail" label="Process will fail" onChange=(action (mut processWillFail))}}
+      <div class="layout-row flex">
+        <div class="flex-50">
+          <h4>Color for Process and Progress:</h4>
+          {{#paper-radio-group
+            groupValue=(readonly colorType)
+            onChange=(action (mut colorType)) as |group|}}
+            {{#group.radio value="primary"}} Default {{/group.radio}}
+            {{#group.radio value="warn" }} Warn {{/group.radio}}
+            {{#group.radio value="accent"}} Accent {{/group.radio}}
+          {{/paper-radio-group}}
+        </div>
+        <div class="flex-50">
+          <h4>Circular options:</h4>
+          <div class="layout layout-align-center-center slider-container">
+            <span>Diameter:&nbsp;&nbsp;&nbsp;</span>
+            {{paper-slider
+              class="flex"
+              min=0
+              max=300
+              value=circularDiameter
+              onChange=(action (mut circularDiameter))
+            }}
+            {{paper-input
+              type="number"
+              value=circularDiameter
+              onChange=(action (mut circularDiameter))
+              min=0
+              max=300
+            }}
+          </div>
+          <div class="layout layout-align-center-center slider-container">
+            <span>Stroke Radio:&nbsp;&nbsp;&nbsp;</span>
+            {{paper-slider
+              class="flex"
+              min=0
+              max=0.5
+              value=circularStrokeRatio
+              step=0.01
+              onChange=(action (mut circularStrokeRatio))
+            }}
+            {{paper-input
+              type="number"
+              value=circularStrokeRatio
+              onChange=(action (mut circularStrokeRatio))
+              min=0
+              max=0.5
+            }}
+          </div>
+        </div>
+      </div>
     {{/paper-form}}
     {{outlet}}
   </div>
-  <div class="flex-50">
+  <div class="flex-40">
     <p>Last Modal Options:</p>
     <pre>{{stringifiedOptions}}</pre>
     <p>Logs:</p>
