@@ -16,6 +16,7 @@ import {
 const confirmButtonState = getConfirmButtonState('md-dialog-actions button:last-child');
 const confirmModal = getConfirmModal('md-dialog-actions button:last-child');
 const declineModal = getDeclineModal('md-dialog-actions button');
+const cancelProgress = declineModal;
 const customModalText = getCustomModalText({
   header: '.md-title',
   body: 'md-dialog-content',
@@ -284,6 +285,34 @@ module('Acceptance | modals', function (hooks) {
       await lastLogMessageAssert(assert, 'Progress was failed (completed [0,1]). Error - "Promise was rejected"');
       return done();
     }, 1000);
+  });
+
+  test('progress-modal (cancelable)', async function (assert) {
+    await visit('/');
+    await click('.progress-cancelable');
+    await openModal('progress');
+    const done = assert.async();
+    await modalIsOpened(assert, true);
+    setTimeout(async () => await cancelProgress(), 600);
+    setTimeout(async () => {
+      await modalIsOpened(assert, false);
+      await lastLogMessageAssert(assert, 'Progress was finished (with [0,1,2,3])');
+      return done();
+    }, 3100);
+  });
+
+  test('progress-modal (cancelable)', async function (assert) {
+    await visit('/');
+    await click('.progress-cancelable input');
+    await openModal('progress');
+    const done = assert.async();
+    await modalIsOpened(assert, true);
+    setTimeout(async () => await cancelProgress(), 800);
+    setTimeout(async () => {
+      await modalIsOpened(assert, false);
+      await lastLogMessageAssert(assert, 'Progress was finished (with [0,1,2,3])');
+      return done();
+    }, 3100);
   });
 
   test('progress-modal circular (error)', async function (assert) {

@@ -25,6 +25,8 @@
       <div class="layout-row flex">
         <div class="flex-50">
           {{paper-checkbox value=progressWillFail class="progress-will-fail" label="Progress will fail" onChange=(action (mut progressWillFail))}}
+          {{paper-checkbox value=settled class="progress-settled" label="Progress won't stop on first failed" onChange=(action (mut settled))}}
+          {{paper-checkbox value=cancelable class="progress-cancelable" label="Progress can be canceled" onChange=(action (mut cancelable))}}
         </div>
         <div class="flex-50">
           {{paper-checkbox value=progressCircular class="progress-circular" label="Progress bar is circular" onChange=(action (mut progressCircular))}}

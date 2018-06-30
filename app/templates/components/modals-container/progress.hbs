@@ -61,6 +61,10 @@
         options.footerComponent
         options=options
       }}
+    {{else}}
+      {{#if options.cancelable}}
+        {{#paper-button onClick=(action "cancel")}}{{options.cancel}}{{/paper-button}}
+      {{/if}}
     {{/if}}
   {{/paper-dialog-actions}}
 {{/paper-dialog}}

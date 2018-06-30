@@ -41,6 +41,8 @@ export default Controller.extend({
   processWillFail: false,
   circularDiameter: 25,
   circularStrokeRatio: 0.1,
+  settled: false,
+  cancelable: false,
 
   addMessage(msg) {
     get(this, 'messages').pushObject(msg);
@@ -129,7 +131,9 @@ export default Controller.extend({
         circularDiameter: get(this, 'circularDiameter'),
         circularStrokeRatio: get(this, 'circularStrokeRatio'),
         linearAccent: get(this, 'accent'),
-        linearWarn: get(this, 'warn')
+        linearWarn: get(this, 'warn'),
+        settled: get(this, 'settled'),
+        cancelable: get(this, 'cancelable')
       };
       set(this, 'options', options);
       get(this, 'modalsManager')
@@ -240,7 +244,9 @@ export default Controller.extend({
         circularDiameter: get(this, 'circularDiameter'),
         circularStrokeRatio: get(this, 'circularStrokeRatio'),
         linearAccent: get(this, 'accent'),
-        linearWarn: get(this, 'warn')
+        linearWarn: get(this, 'warn'),
+        settled: get(this, 'settled'),
+        cancelable: get(this, 'cancelable')
       };
       set(this, 'options', options);
       get(this, 'modalsManager')

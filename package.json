@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "ember-cli-babel": "^6.6.0",
-    "ember-modals-manager-internal": "^1.0.4"
+    "ember-modals-manager-internal": "^1.0.5"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
