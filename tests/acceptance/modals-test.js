@@ -287,6 +287,20 @@ module('Acceptance | modals', function (hooks) {
     }, 1000);
   });
 
+  test('progress-modal (error settled)', async function (assert) {
+    await visit('/');
+    await click('.progress-will-fail');
+    await click('.progress-settled');
+    await openModal('progress');
+    const done = assert.async();
+    await modalIsOpened(assert, true);
+    setTimeout(async () => {
+      await modalIsOpened(assert, false);
+      await lastLogMessageAssert(assert, 'Progress was finished (with [[0,1,2,3,4],["Promise was rejected"]])');
+      return done();
+    }, 3100);
+  });
+
   test('progress-modal (cancelable)', async function (assert) {
     await visit('/');
     await click('.progress-cancelable');
@@ -294,20 +308,6 @@ module('Acceptance | modals', function (hooks) {
     const done = assert.async();
     await modalIsOpened(assert, true);
     setTimeout(async () => await cancelProgress(), 600);
-    setTimeout(async () => {
-      await modalIsOpened(assert, false);
-      await lastLogMessageAssert(assert, 'Progress was finished (with [0,1,2,3])');
-      return done();
-    }, 3100);
-  });
-
-  test('progress-modal (cancelable)', async function (assert) {
-    await visit('/');
-    await click('.progress-cancelable input');
-    await openModal('progress');
-    const done = assert.async();
-    await modalIsOpened(assert, true);
-    setTimeout(async () => await cancelProgress(), 800);
     setTimeout(async () => {
       await modalIsOpened(assert, false);
       await lastLogMessageAssert(assert, 'Progress was finished (with [0,1,2,3])');
