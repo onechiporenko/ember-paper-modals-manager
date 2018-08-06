@@ -32,6 +32,16 @@ export default Controller.extend({
 
   disallowEmptyPrompt: false,
 
+  confirmButtonFab: false,
+  confirmButtonMini: false,
+  confirmButtonNoInk: false,
+  confirmButtonRaised: false,
+
+  declineButtonFab: false,
+  declineButtonMini: false,
+  declineButtonNoInk: false,
+  declineButtonRaised: false,
+
   colorType: 'primary',
   warn: equal('colorType', 'warn'),
   accent: equal('colorType', 'accent'),
@@ -64,6 +74,14 @@ export default Controller.extend({
       const options = {
         title: 'Custom Alert Modal Title',
         body: 'Custom Alert Modal Body',
+        confirmButtonFab: get(this, 'confirmButtonFab'),
+        confirmButtonMini: get(this, 'confirmButtonMini'),
+        confirmButtonNoInk: get(this, 'confirmButtonNoInk'),
+        confirmButtonRaised: get(this, 'confirmButtonRaised'),
+        declineButtonFab: get(this, 'declineButtonFab'),
+        declineButtonMini: get(this, 'declineButtonMini'),
+        declineButtonNoInk: get(this, 'declineButtonNoInk'),
+        declineButtonRaised: get(this, 'declineButtonRaised')
       };
       set(this, 'options', options);
       get(this, 'modalsManager')
@@ -74,7 +92,15 @@ export default Controller.extend({
     showConfirmModal() {
       const options = {
         title: 'Custom Confirm Modal Title',
-        body: 'Custom Confirm Modal Body'
+        body: 'Custom Confirm Modal Body',
+        confirmButtonFab: get(this, 'confirmButtonFab'),
+        confirmButtonMini: get(this, 'confirmButtonMini'),
+        confirmButtonNoInk: get(this, 'confirmButtonNoInk'),
+        confirmButtonRaised: get(this, 'confirmButtonRaised'),
+        declineButtonFab: get(this, 'declineButtonFab'),
+        declineButtonMini: get(this, 'declineButtonMini'),
+        declineButtonNoInk: get(this, 'declineButtonNoInk'),
+        declineButtonRaised: get(this, 'declineButtonRaised')
       };
       set(this, 'options', options);
       get(this, 'modalsManager')
@@ -87,7 +113,15 @@ export default Controller.extend({
         title: 'Custom Prompt Modal Title',
         body: 'Custom Prompt Modal Body',
         inputLabel: 'Input Label',
-        disallowEmpty: get(this, 'disallowEmptyPrompt')
+        disallowEmpty: get(this, 'disallowEmptyPrompt'),
+        confirmButtonFab: get(this, 'confirmButtonFab'),
+        confirmButtonMini: get(this, 'confirmButtonMini'),
+        confirmButtonNoInk: get(this, 'confirmButtonNoInk'),
+        confirmButtonRaised: get(this, 'confirmButtonRaised'),
+        declineButtonFab: get(this, 'declineButtonFab'),
+        declineButtonMini: get(this, 'declineButtonMini'),
+        declineButtonNoInk: get(this, 'declineButtonNoInk'),
+        declineButtonRaised: get(this, 'declineButtonRaised')
       };
       set(this, 'options', options);
       get(this, 'modalsManager')
@@ -100,7 +134,15 @@ export default Controller.extend({
         title: 'Custom Prompt Confirm Modal Title',
         body: 'Please enter a "modal" without quotes',
         inputLabel: 'Input Label',
-        promptValue: 'modal'
+        promptValue: 'modal',
+        confirmButtonFab: get(this, 'confirmButtonFab'),
+        confirmButtonMini: get(this, 'confirmButtonMini'),
+        confirmButtonNoInk: get(this, 'confirmButtonNoInk'),
+        confirmButtonRaised: get(this, 'confirmButtonRaised'),
+        declineButtonFab: get(this, 'declineButtonFab'),
+        declineButtonMini: get(this, 'declineButtonMini'),
+        declineButtonNoInk: get(this, 'declineButtonNoInk'),
+        declineButtonRaised: get(this, 'declineButtonRaised')
       };
       set(this, 'options', options);
       get(this, 'modalsManager')
@@ -112,7 +154,15 @@ export default Controller.extend({
       const options = {
         title: 'Custom Check Confirm Modal Title',
         body: 'Confirm your suggestion',
-        inputLabel: 'Input Label'
+        inputLabel: 'Input Label',
+        confirmButtonFab: get(this, 'confirmButtonFab'),
+        confirmButtonMini: get(this, 'confirmButtonMini'),
+        confirmButtonNoInk: get(this, 'confirmButtonNoInk'),
+        confirmButtonRaised: get(this, 'confirmButtonRaised'),
+        declineButtonFab: get(this, 'declineButtonFab'),
+        declineButtonMini: get(this, 'declineButtonMini'),
+        declineButtonNoInk: get(this, 'declineButtonNoInk'),
+        declineButtonRaised: get(this, 'declineButtonRaised')
       };
       set(this, 'options', options);
       get(this, 'modalsManager')
@@ -133,7 +183,11 @@ export default Controller.extend({
         linearAccent: get(this, 'accent'),
         linearWarn: get(this, 'warn'),
         settled: get(this, 'settled'),
-        cancelable: get(this, 'cancelable')
+        cancelable: get(this, 'cancelable'),
+        declineButtonFab: get(this, 'declineButtonFab'),
+        declineButtonMini: get(this, 'declineButtonMini'),
+        declineButtonNoInk: get(this, 'declineButtonNoInk'),
+        declineButtonRaised: get(this, 'declineButtonRaised')
       };
       set(this, 'options', options);
       get(this, 'modalsManager')
@@ -171,7 +225,7 @@ export default Controller.extend({
       const options = {
         titleComponent: 'custom-alert-header',
         bodyComponent: 'custom-alert-body',
-        footerComponent: 'custom-alert-footer',
+        footerComponent: 'custom-alert-footer'
       };
       set(this, 'options', options);
       get(this, 'modalsManager')

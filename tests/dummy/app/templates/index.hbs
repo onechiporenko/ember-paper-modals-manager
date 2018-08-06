@@ -19,6 +19,21 @@
     {{#paper-button raised=true class="custom-process-modal" onClick=(action "showCustomProcessModal")}}Process Modal{{/paper-button}}
     <h3>Settings:</h3>
     {{#paper-form}}
+      <h4>General:</h4>
+      <div class="layout-row flex">
+        <div class="flex-50">
+          {{paper-checkbox value=confirmButtonFab class="confirm-button-fab" label="Confirm Button Fab" onChange=(action (mut confirmButtonFab))}}
+          {{paper-checkbox value=confirmButtonMini class="confirm-button-mini" label="Confirm Button Mini" onChange=(action (mut confirmButtonMini))}}
+          {{paper-checkbox value=confirmButtonNoInk class="confirm-button-no-ink" label="Confirm Button No Ink" onChange=(action (mut confirmButtonNoInk))}}
+          {{paper-checkbox value=confirmButtonRaised class="confirm-button-raised" label="Confirm Button Raised" onChange=(action (mut confirmButtonRaised))}}
+        </div>
+        <div class="flex-50">
+          {{paper-checkbox value=declineButtonFab class="decline-button-fab" label="Decline Button Fab" onChange=(action (mut declineButtonFab))}}
+          {{paper-checkbox value=declineButtonMini class="decline-button-mini" label="Decline Button Mini" onChange=(action (mut declineButtonMini))}}
+          {{paper-checkbox value=declineButtonNoInk class="decline-button-no-ink" label="Decline Button No Ink" onChange=(action (mut declineButtonNoInk))}}
+          {{paper-checkbox value=declineButtonRaised class="decline-button-raised" label="Decline Button Raised" onChange=(action (mut declineButtonRaised))}}
+        </div>
+      </div>
       <h4>Prompt:</h4>
       {{paper-checkbox value=disallowEmptyPrompt class="disallow-empty" label="Disallow empty prompt" onChange=(action (mut disallowEmptyPrompt))}}
       <h4>Progress:</h4>
