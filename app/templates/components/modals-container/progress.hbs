@@ -63,7 +63,20 @@
       }}
     {{else}}
       {{#if options.cancelable}}
-        {{#paper-button onClick=(action "cancel")}}{{options.cancel}}{{/paper-button}}
+        {{#paper-button
+          primary=options.declineButtonPrimary
+          fab=options.declineButtonFab
+          mini=options.declineButtonMini
+          noInk=options.declineButtonNoInk
+          raised=options.declineButtonRaised
+          iconButton=options.declineButtonIcon
+          onClick=(action "cancel")
+        }}
+          {{#if options.declineButtonIcon}}
+            {{paper-icon options.declineButtonIcon}}
+          {{/if}}
+          {{options.cancel}}
+        {{/paper-button}}
       {{/if}}
     {{/if}}
   {{/paper-dialog-actions}}

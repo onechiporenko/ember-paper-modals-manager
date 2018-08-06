@@ -18,7 +18,19 @@ export function initialize(appInstance) {
     circularAccent: false,
     circularWarn: false,
     linearAccent: false,
-    linearWarn: false
+    linearWarn: false,
+    confirmButtonPrimary: true,
+    confirmButtonFab: false,
+    confirmButtonMini: false,
+    confirmButtonNoInk: false,
+    confirmButtonRaised: false,
+    confirmButtonIcon: '',
+    declineButtonPrimary: true,
+    declineButtonFab: false,
+    declineButtonMini: false,
+    declineButtonNoInk: false,
+    declineButtonRaised: false,
+    declineButtonIcon: '',
   });
 }
 

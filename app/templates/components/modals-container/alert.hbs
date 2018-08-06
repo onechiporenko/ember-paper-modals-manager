@@ -44,7 +44,20 @@
       }}
     {{else}}
       <p>{{options.footer}}</p>
-      {{#paper-button primary=true onClick=(action "confirm")}}{{options.confirm}}{{/paper-button}}
+      {{#paper-button
+        primary=options.confirmButtonPrimary
+        fab=options.confirmButtonFab
+        mini=options.confirmButtonMini
+        noInk=options.confirmButtonNoInk
+        raised=options.confirmButtonRaised
+        iconButton=options.confirmButtonIcon
+        onClick=(action "confirm")
+      }}
+        {{#if options.confirmButtonIcon}}
+          {{paper-icon options.confirmButtonIcon}}
+        {{/if}}
+        {{options.confirm}}
+      {{/paper-button}}
     {{/if}}
   {{/paper-dialog-actions}}
 {{/paper-dialog}}
