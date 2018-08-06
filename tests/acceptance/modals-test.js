@@ -374,19 +374,34 @@ module('Acceptance | modals', function (hooks) {
   test('process-modal (success)', async function (assert) {
     await visit('/');
     await openModal('process');
-    await lastLogMessageAssert(assert, 'Process was confirmed (with some result)');
+    const done = assert.async();
+    setTimeout(async () => {
+      await modalIsOpened(assert, false);
+      await lastLogMessageAssert(assert, 'Process was confirmed (with some result)');
+      return done();
+    }, 3100);
   });
 
   test('process-modal (error)', async function (assert) {
     await visit('/');
     await click('.process-will-fail');
     await openModal('process');
-    await lastLogMessageAssert(assert, 'Process was declined (with some error)');
+    const done = assert.async();
+    setTimeout(async () => {
+      await modalIsOpened(assert, false);
+      await lastLogMessageAssert(assert, 'Process was declined (with some error)');
+      return done();
+    }, 3100);
   });
 
   test('Custom process-modal', async function (assert) {
     await visit('/');
     await openModal('custom-process');
-    await lastLogMessageAssert(assert, 'Process was confirmed (with some result)');
+    const done = assert.async();
+    setTimeout(async () => {
+      await modalIsOpened(assert, false);
+      await lastLogMessageAssert(assert, 'Process was confirmed (with some result)');
+      return done();
+    }, 3100);
   });
 });
