@@ -1,3 +1,4 @@
+{{! BEGIN-SNIPPET components-custom-progress-body.hbs }}
 <p>Custom Progress Body Component {{done}} / {{overall}}</p>
 {{#if options.circular}}
   {{paper-progress-circular
@@ -15,3 +16,4 @@
     warn=options.linearWarn
   }}
 {{/if}}
+{{! END-SNIPPET }}

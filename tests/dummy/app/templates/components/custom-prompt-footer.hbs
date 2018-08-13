@@ -1,2 +1,15 @@
-Custom Prompt Footer Component {{#paper-button onClick=(action decline)}}Decline{{/paper-button}} {{#paper-button
-  onClick=(action confirm) disabled=confirmDisabled type="primary"}}Confirm{{/paper-button}}
+{{! BEGIN-SNIPPET components-custom-prompt-footer.hbs }}
+Custom Prompt Footer Component
+{{#paper-button
+  onClick=(action decline)
+}}
+  Decline
+{{/paper-button}}
+{{#paper-button
+  onClick=(action confirm)
+  disabled=confirmDisabled
+  type="primary"
+}}
+  Confirm
+{{/paper-button}}
+{{! END-SNIPPET }}

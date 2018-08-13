@@ -1,2 +1,14 @@
-Custom Confirm Footer Component {{#paper-button onClick=(action decline)}}Decline{{/paper-button}} {{#paper-button
-  onClick=(action confirm) type="primary"}}Confirm{{/paper-button}}
+{{! BEGIN-SNIPPET components-custom-confirm-footer.hbs }}
+Custom Confirm Footer Component
+{{#paper-button
+  onClick=(action decline)
+}}
+  Decline
+{{/paper-button}}
+{{#paper-button
+  onClick=(action confirm)
+  type="primary"
+}}
+  Confirm
+{{/paper-button}}
+{{! END-SNIPPET }}

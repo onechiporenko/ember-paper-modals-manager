@@ -1,7 +1,16 @@
+{{! BEGIN-SNIPPET components-custom-prompt-confirm-header.hbs }}
 {{#paper-toolbar}}
   {{#paper-toolbar-tools}}
-    <h2 class="md-title">{{paper-icon icon="warning"}} Custom Prompt Confirm Title Component</h2>
+    <h2 class="md-title">
+      {{paper-icon icon="warning"}} Custom Prompt Confirm Title Component
+    </h2>
     <span class="flex"></span>
-    {{#paper-button iconButton=true onClick=(action decline)}}{{paper-icon "close"}}{{/paper-button}}
+    {{#paper-button
+      iconButton=true
+      onClick=(action decline)
+    }}
+      {{paper-icon "close"}}
+    {{/paper-button}}
   {{/paper-toolbar-tools}}
 {{/paper-toolbar}}
+{{! END-SNIPPET }}

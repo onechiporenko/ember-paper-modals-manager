@@ -21,3 +21,4 @@ yarn.lock
 bower.json.ember-try
 package.json.ember-try
 .idea
+/config/addon-docs.js
