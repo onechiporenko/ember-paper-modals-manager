@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-paper-modals-manager'
+  name: require('./package').name
 };

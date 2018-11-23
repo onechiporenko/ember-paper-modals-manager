@@ -8,15 +8,13 @@
   openFrom=options.openFrom
   origin=options.origin
   parent=options.parent
-  onClose=(action "decline")
-}}
+  onClose=(action "decline")}}
   {{#if options.titleComponent}}
     {{component
       options.titleComponent
       options=options
       confirm=(action "confirm")
-      decline=(action "decline")
-    }}
+      decline=(action "decline")}}
   {{/if}}
   {{#paper-dialog-content}}
 
@@ -30,8 +28,7 @@
         options=options
         progress=progress
         done=done
-        overall=promisesCount
-      }}
+        overall=promisesCount}}
     {{else}}
       <p>{{options.body}}</p>
       <div class="layout-row layout-align-center">
@@ -42,14 +39,12 @@
             accent=options.circularAccent
             warn=options.circularWarn
             diameter=options.circularDiameter
-            strokeRatio=options.circularStrokeRatio
-          }}
+            strokeRatio=options.circularStrokeRatio}}
         {{else}}
           {{paper-progress-linear
             value=progress
             accent=options.linearAccent
-            warn=options.linearWarn
-          }}
+            warn=options.linearWarn}}
         {{/if}}
       </div>
     {{/if}}
@@ -59,8 +54,7 @@
     {{#if options.footerComponent}}
       {{component
         options.footerComponent
-        options=options
-      }}
+        options=options}}
     {{else}}
       {{#if options.cancelable}}
         {{#paper-button
@@ -70,8 +64,7 @@
           noInk=options.declineButtonNoInk
           raised=options.declineButtonRaised
           iconButton=options.declineButtonIcon
-          onClick=(action "cancel")
-        }}
+          onClick=(action "cancel")}}
           {{#if options.declineButtonIcon}}
             {{paper-icon options.declineButtonIcon}}
           {{/if}}

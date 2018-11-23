@@ -8,15 +8,13 @@
   openFrom=options.openFrom
   origin=options.origin
   parent=options.parent
-  onClose=(action "decline")
-}}
+  onClose=(action "decline")}}
   {{#if options.titleComponent}}
     {{component
       options.titleComponent
       options=options
       confirm=(action "confirm")
-      decline=(action "decline")
-    }}
+      decline=(action "decline")}}
   {{/if}}
   {{#paper-dialog-content}}
 
@@ -29,12 +27,15 @@
         options.bodyComponent
         options=options
         promptValue=promptValue
-        updatePromptValue=(action "updatePromptValue")
-      }}
+        updatePromptValue=(action "updatePromptValue")}}
     {{else}}
       <p>{{options.body}}</p>
       {{#paper-form onSubmit=(action "confirm")}}
-        {{paper-checkbox label=options.inputLabel value=promptValue onChange=(action (mut promptValue)) required=true}}
+        {{paper-checkbox
+          label=options.inputLabel
+          value=promptValue
+          onChange=(action (mut promptValue))
+          required=true}}
       {{/paper-form}}
     {{/if}}
   {{/paper-dialog-content}}
@@ -46,8 +47,7 @@
         options=options
         confirmDisabled=confirmDisabled
         confirm=(action "confirm")
-        decline=(action "decline")
-      }}
+        decline=(action "decline")}}
     {{else}}
       <p>{{options.footer}}</p>
       {{#paper-button
@@ -57,8 +57,7 @@
         noInk=options.declineButtonNoInk
         raised=options.declineButtonRaised
         iconButton=options.declineButtonIcon
-        onClick=(action "decline")
-      }}
+        onClick=(action "decline")}}
         {{#if options.declineButtonIcon}}
           {{paper-icon options.declineButtonIcon}}
         {{/if}}
@@ -72,8 +71,7 @@
         raised=options.confirmButtonRaised
         iconButton=options.confirmButtonIcon
         disabled=confirmDisabled
-        onClick=(action "confirm")
-      }}
+        onClick=(action "confirm")}}
         {{#if options.confirmButtonIcon}}
           {{paper-icon options.confirmButtonIcon}}
         {{/if}}

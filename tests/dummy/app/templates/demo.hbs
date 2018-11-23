@@ -76,6 +76,10 @@
     line-height: 1.6em;
     margin: 0.8em 0 1.6em;
   }
+
+  .docs-bg-white, body > .ember-view {
+    background: transparent;
+  }
 </style>
 <div id="main" class="flex layout-column" tabindex="-1" role="main">
   {{#paper-content scroll-y=true class="layout-padding flex"}}
@@ -83,35 +87,92 @@
     <div class="layout-row flex">
       <div class="flex-60 demo">
         <h3>Default modals:</h3>
-        {{#paper-button raised=true class="alert-modal" onClick=(action "showAlertModal")}}Alert Modal{{/paper-button}}
-        {{#paper-button raised=true class="confirm-modal" onClick=(action "showConfirmModal")}}
-          Confirm Modal{{/paper-button}}
-        {{#paper-button raised=true class="prompt-modal" onClick=(action "showPromptModal")}}
-          Prompt Modal{{/paper-button}}
-        {{#paper-button raised=true class="prompt-confirm-modal" onClick=(action "showPromptConfirmModal")}}
-          Prompt Confirm Modal{{/paper-button}}
-        {{#paper-button raised=true class="check-confirm-modal" onClick=(action "showCheckConfirmModal")}}
-          Check Confirm Modal{{/paper-button}}
-        {{#paper-button raised=true class="progress-modal" onClick=(action "showProgressModal")}}
-          Progress Modal{{/paper-button}}
-        {{#paper-button raised=true class="process-modal" onClick=(action "showProcessModal")}}
-          Process Modal{{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="alert-modal"
+          onClick=(action "showAlertModal")}}
+          Alert Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="confirm-modal"
+          onClick=(action "showConfirmModal")}}
+          Confirm Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="prompt-modal"
+          onClick=(action "showPromptModal")}}
+          Prompt Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="prompt-confirm-modal"
+          onClick=(action "showPromptConfirmModal")}}
+          Prompt Confirm Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="check-confirm-modal"
+          onClick=(action "showCheckConfirmModal")}}
+          Check Confirm Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="progress-modal"
+          onClick=(action "showProgressModal")}}
+          Progress Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="process-modal"
+          onClick=(action "showProcessModal")}}
+          Process Modal
+        {{/paper-button}}
 
         <h3>Modals with custom components:</h3>
-        {{#paper-button raised=true class="custom-alert-modal" onClick=(action "showCustomAlertModal")}}
-          Alert Modal{{/paper-button}}
-        {{#paper-button raised=true class="custom-confirm-modal" onClick=(action "showCustomConfirmModal")}}
-          Confirm Modal{{/paper-button}}
-        {{#paper-button raised=true class="custom-prompt-modal" onClick=(action "showCustomPromptModal")}}
-          Prompt Modal{{/paper-button}}
-        {{#paper-button raised=true class="custom-prompt-confirm-modal"
-                        onClick=(action "showCustomPromptConfirmModal")}}Prompt Confirm Modal{{/paper-button}}
-        {{#paper-button raised=true class="custom-check-confirm-modal" onClick=(action "showCustomCheckConfirmModal")}}
-          Check Confirm Modal{{/paper-button}}
-        {{#paper-button raised=true class="custom-progress-modal" onClick=(action "showCustomProgressModal")}}
-          Progress Modal{{/paper-button}}
-        {{#paper-button raised=true class="custom-process-modal" onClick=(action "showCustomProcessModal")}}
-          Process Modal{{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="custom-alert-modal"
+          onClick=(action "showCustomAlertModal")}}
+          Alert Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="custom-confirm-modal"
+          onClick=(action "showCustomConfirmModal")}}
+          Confirm Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="custom-prompt-modal"
+          onClick=(action "showCustomPromptModal")}}
+          Prompt Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="custom-prompt-confirm-modal"
+          onClick=(action "showCustomPromptConfirmModal")}}
+          Prompt Confirm Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="custom-check-confirm-modal"
+          onClick=(action "showCustomCheckConfirmModal")}}
+          Check Confirm Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="custom-progress-modal"
+          onClick=(action "showCustomProgressModal")}}
+          Progress Modal
+        {{/paper-button}}
+        {{#paper-button
+          raised=true
+          class="custom-process-modal"
+          onClick=(action "showCustomProcessModal")}}
+          Process Modal
+        {{/paper-button}}
         <h3>Settings:</h3>
         {{#paper-form}}
           <h4>General:</h4>
@@ -121,52 +182,44 @@
                 value=confirmButtonFab
                 class="confirm-button-fab"
                 label="Confirm Button Fab"
-                onChange=(action (mut confirmButtonFab))
-              }}
+                onChange=(action (mut confirmButtonFab))}}
               {{paper-checkbox
                 value=confirmButtonMini
                 class="confirm-button-mini"
                 label="Confirm Button Mini"
-                onChange=(action (mut confirmButtonMini))
-              }}
+                onChange=(action (mut confirmButtonMini))}}
               {{paper-checkbox
                 value=confirmButtonNoInk
                 class="confirm-button-no-ink"
                 label="Confirm Button No Ink"
-                onChange=(action (mut confirmButtonNoInk))
-              }}
+                onChange=(action (mut confirmButtonNoInk))}}
               {{paper-checkbox
                 value=confirmButtonRaised
                 class="confirm-button-raised"
                 label="Confirm Button Raised"
-                onChange=(action (mut confirmButtonRaised))
-              }}
+                onChange=(action (mut confirmButtonRaised))}}
             </div>
             <div class="flex-50">
               {{paper-checkbox
                 value=declineButtonFab
                 class="decline-button-fab"
                 label="Decline Button Fab"
-                onChange=(action (mut declineButtonFab))
-              }}
+                onChange=(action (mut declineButtonFab))}}
               {{paper-checkbox
                 value=declineButtonMini
                 class="decline-button-mini"
                 label="Decline Button Mini"
-                onChange=(action (mut declineButtonMini))
-              }}
+                onChange=(action (mut declineButtonMini))}}
               {{paper-checkbox
                 value=declineButtonNoInk
                 class="decline-button-no-ink"
                 label="Decline Button No Ink"
-                onChange=(action (mut declineButtonNoInk))
-              }}
+                onChange=(action (mut declineButtonNoInk))}}
               {{paper-checkbox
                 value=declineButtonRaised
                 class="decline-button-raised"
                 label="Decline Button Raised"
-                onChange=(action (mut declineButtonRaised))
-              }}
+                onChange=(action (mut declineButtonRaised))}}
             </div>
           </div>
           <h4>Prompt:</h4>
@@ -174,8 +227,7 @@
             value=disallowEmptyPrompt
             class="disallow-empty"
             label="Disallow empty prompt"
-            onChange=(action (mut disallowEmptyPrompt))
-          }}
+            onChange=(action (mut disallowEmptyPrompt))}}
           <h4>Progress:</h4>
           <div class="layout-row flex">
             <div class="flex-50">
@@ -183,28 +235,24 @@
                 value=progressWillFail
                 class="progress-will-fail"
                 label="Progress will fail"
-                onChange=(action (mut progressWillFail))
-              }}
+                onChange=(action (mut progressWillFail))}}
               {{paper-checkbox
                 value=settled
                 class="progress-settled"
                 label="Progress won't stop on first failed"
-                onChange=(action (mut settled))
-              }}
+                onChange=(action (mut settled))}}
               {{paper-checkbox
                 value=cancelable
                 class="progress-cancelable"
                 label="Progress can be canceled"
-                onChange=(action (mut cancelable))
-              }}
+                onChange=(action (mut cancelable))}}
             </div>
             <div class="flex-50">
               {{paper-checkbox
                 value=progressCircular
                 class="progress-circular"
                 label="Progress bar is circular"
-                onChange=(action (mut progressCircular))
-              }}
+                onChange=(action (mut progressCircular))}}
             </div>
           </div>
           <h4>Process:</h4>
@@ -212,17 +260,27 @@
             value=processWillFail
             class="process-will-fail"
             label="Process will fail"
-            onChange=(action (mut processWillFail))
-          }}
+            onChange=(action (mut processWillFail))}}
           <div class="layout-row flex">
             <div class="flex-50">
               <h4>Color for Process and Progress:</h4>
+              {{! template-lint-disable attribute-indentation }}
               {{#paper-radio-group
                 groupValue=(readonly colorType)
-                onChange=(action (mut colorType)) as |group|}}
-                {{#group.radio value="primary"}} Default {{/group.radio}}
-                {{#group.radio value="warn" }} Warn {{/group.radio}}
-                {{#group.radio value="accent"}} Accent {{/group.radio}}
+                onChange=(action (mut colorType))
+              as |group|}}
+                {{#group.radio
+                  value="primary"}}
+                  Default
+                {{/group.radio}}
+                {{#group.radio
+                  value="warn"}}
+                  Warn
+                {{/group.radio}}
+                {{#group.radio
+                  value="accent"}}
+                  Accent
+                {{/group.radio}}
               {{/paper-radio-group}}
             </div>
             <div class="flex-50">
@@ -234,15 +292,13 @@
                   min=0
                   max=300
                   value=circularDiameter
-                  onChange=(action (mut circularDiameter))
-                }}
+                  onChange=(action (mut circularDiameter))}}
                 {{paper-input
                   type="number"
                   value=circularDiameter
                   onChange=(action (mut circularDiameter))
                   min=0
-                  max=300
-                }}
+                  max=300}}
               </div>
               <div class="layout layout-align-center-center slider-container">
                 <span>Stroke Radio:&nbsp;&nbsp;&nbsp;</span>
@@ -252,15 +308,13 @@
                   max=0.5
                   value=circularStrokeRatio
                   step=0.01
-                  onChange=(action (mut circularStrokeRatio))
-                }}
+                  onChange=(action (mut circularStrokeRatio))}}
                 {{paper-input
                   type="number"
                   value=circularStrokeRatio
                   onChange=(action (mut circularStrokeRatio))
                   min=0
-                  max=0.5
-                }}
+                  max=0.5}}
               </div>
             </div>
           </div>
@@ -272,7 +326,11 @@
         <pre>{{stringifiedOptions}}</pre>
         <p>Logs:</p>
         <p class="logs">{{#each messages as |message|}}{{message}}<br>{{/each}}</p>
-        {{#paper-button raised=true onClick=(action "cleanMessage")}}Clear logs{{/paper-button}}
+        {{#paper-button
+          raised=true
+          onClick=(action "cleanMessage")}}
+          Clear logs
+        {{/paper-button}}
       </div>
     </div>
   {{/paper-content}}

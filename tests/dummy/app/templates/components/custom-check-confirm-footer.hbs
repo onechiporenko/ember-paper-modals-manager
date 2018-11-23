@@ -1,15 +1,13 @@
 {{! BEGIN-SNIPPET components-custom-check-confirm-footer.hbs }}
 Custom Check Confirm Footer Component
 {{#paper-button
-  onClick=(action decline)
-}}
+  onClick=(action decline)}}
   Decline
 {{/paper-button}}
 {{#paper-button
   disabled=confirmDisabled
   onClick=(action confirm)
-  type="primary"
-}}
+  type="primary"}}
   Confirm
 {{/paper-button}}
 {{! END-SNIPPET }}
