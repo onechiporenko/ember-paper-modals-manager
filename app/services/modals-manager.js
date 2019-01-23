@@ -1,1 +1,1 @@
-export { default } from 'ember-paper-modals-manager/services/paper-modals-manager';
+export { default } from 'ember-paper-modals-manager/services/modals-manager';
