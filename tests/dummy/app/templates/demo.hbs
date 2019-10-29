@@ -82,243 +82,243 @@
   }
 </style>
 <div id="main" class="flex layout-column" tabindex="-1" role="main">
-  {{#paper-content scroll-y=true class="layout-padding flex"}}
+  <PaperContent @scroll-y={{true}} class="layout-padding flex">
     <h3>Back to {{#link-to "docs"}}docs{{/link-to}}</h3>
     <div class="layout-row flex">
       <div class="flex-60 demo">
         <h3>Default modals:</h3>
-        {{#paper-button
-          raised=true
+        <PaperButton
+          @raised={{true}}
           class="alert-modal"
-          onClick=(action "showAlertModal")}}
+          @onClick={{action "showAlertModal"}}>
           Alert Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="confirm-modal"
-          onClick=(action "showConfirmModal")}}
+          @onClick={{action "showConfirmModal"}}>
           Confirm Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="prompt-modal"
-          onClick=(action "showPromptModal")}}
+          @onClick={{action "showPromptModal"}}>
           Prompt Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="prompt-confirm-modal"
-          onClick=(action "showPromptConfirmModal")}}
+          @onClick={{action "showPromptConfirmModal"}}>
           Prompt Confirm Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="check-confirm-modal"
-          onClick=(action "showCheckConfirmModal")}}
+          @onClick={{action "showCheckConfirmModal"}}>
           Check Confirm Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="progress-modal"
-          onClick=(action "showProgressModal")}}
+          @onClick={{action "showProgressModal"}}>
           Progress Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="process-modal"
-          onClick=(action "showProcessModal")}}
+          @onClick={{action "showProcessModal"}}>
           Process Modal
-        {{/paper-button}}
+        </PaperButton>
 
         <h3>Modals with custom components:</h3>
-        {{#paper-button
-          raised=true
+        <PaperButton
+          @raised={{true}}
           class="custom-alert-modal"
-          onClick=(action "showCustomAlertModal")}}
+          @onClick={{action "showCustomAlertModal"}}>
           Alert Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="custom-confirm-modal"
-          onClick=(action "showCustomConfirmModal")}}
+          @onClick={{action "showCustomConfirmModal"}}>
           Confirm Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="custom-prompt-modal"
-          onClick=(action "showCustomPromptModal")}}
+          @onClick={{action "showCustomPromptModal"}}>
           Prompt Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="custom-prompt-confirm-modal"
-          onClick=(action "showCustomPromptConfirmModal")}}
+          @onClick={{action "showCustomPromptConfirmModal"}}>
           Prompt Confirm Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="custom-check-confirm-modal"
-          onClick=(action "showCustomCheckConfirmModal")}}
+          @onClick={{action "showCustomCheckConfirmModal"}}>
           Check Confirm Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="custom-progress-modal"
-          onClick=(action "showCustomProgressModal")}}
+          @onClick={{action "showCustomProgressModal"}}>
           Progress Modal
-        {{/paper-button}}
-        {{#paper-button
-          raised=true
+        </PaperButton>
+        <PaperButton
+          @raised={{true}}
           class="custom-process-modal"
-          onClick=(action "showCustomProcessModal")}}
+          @onClick={{action "showCustomProcessModal"}}>
           Process Modal
-        {{/paper-button}}
+        </PaperButton>
         <h3>Settings:</h3>
-        {{#paper-form}}
+        <PaperForm>
           <h4>General:</h4>
           <div class="layout-row flex">
             <div class="flex-50">
-              {{paper-checkbox
-                value=confirmButtonFab
+              <PaperCheckbox
+                @value={{confirmButtonFab}}
                 class="confirm-button-fab"
-                label="Confirm Button Fab"
-                onChange=(action (mut confirmButtonFab))}}
-              {{paper-checkbox
-                value=confirmButtonMini
+                @label={{"Confirm Button Fab"}}
+                @onChange={{action (mut confirmButtonFab)}}/>
+              <PaperCheckbox
+                @value={{confirmButtonMini}}
                 class="confirm-button-mini"
-                label="Confirm Button Mini"
-                onChange=(action (mut confirmButtonMini))}}
-              {{paper-checkbox
-                value=confirmButtonNoInk
+                @label={{"Confirm Button Mini"}}
+                @onChange={{action (mut confirmButtonMini)}}/>
+              <PaperCheckbox
+                @value={{confirmButtonNoInk}}
                 class="confirm-button-no-ink"
-                label="Confirm Button No Ink"
-                onChange=(action (mut confirmButtonNoInk))}}
-              {{paper-checkbox
-                value=confirmButtonRaised
+                @label={{"Confirm Button No Ink"}}
+                @onChange={{action (mut confirmButtonNoInk)}}/>
+              <PaperCheckbox
+                @value={{confirmButtonRaised}}
                 class="confirm-button-raised"
-                label="Confirm Button Raised"
-                onChange=(action (mut confirmButtonRaised))}}
+                @label={{"Confirm Button Raised"}}
+                @onChange={{action (mut confirmButtonRaised)}}/>
             </div>
             <div class="flex-50">
-              {{paper-checkbox
-                value=declineButtonFab
+              <PaperCheckbox
+                @value={{declineButtonFab}}
                 class="decline-button-fab"
-                label="Decline Button Fab"
-                onChange=(action (mut declineButtonFab))}}
-              {{paper-checkbox
-                value=declineButtonMini
+                @label={{"Decline Button Fab"}}
+                @onChange={{action (mut declineButtonFab)}}/>
+              <PaperCheckbox
+                @value={{declineButtonMini}}
                 class="decline-button-mini"
-                label="Decline Button Mini"
-                onChange=(action (mut declineButtonMini))}}
-              {{paper-checkbox
-                value=declineButtonNoInk
+                @label={{"Decline Button Mini"}}
+                @onChange={{action (mut declineButtonMini)}}/>
+              <PaperCheckbox
+                @value={{declineButtonNoInk}}
                 class="decline-button-no-ink"
-                label="Decline Button No Ink"
-                onChange=(action (mut declineButtonNoInk))}}
-              {{paper-checkbox
-                value=declineButtonRaised
+                @label={{"Decline Button No Ink"}}
+                @onChange={{action (mut declineButtonNoInk)}}/>
+              <PaperCheckbox
+                @value={{declineButtonRaised}}
                 class="decline-button-raised"
-                label="Decline Button Raised"
-                onChange=(action (mut declineButtonRaised))}}
+                @label={{"Decline Button Raised"}}
+                @onChange={{action (mut declineButtonRaised)}}/>
             </div>
           </div>
           <h4>Prompt:</h4>
-          {{paper-checkbox
-            value=disallowEmptyPrompt
+          <PaperCheckbox
+            @value={{disallowEmptyPrompt}}
             class="disallow-empty"
-            label="Disallow empty prompt"
-            onChange=(action (mut disallowEmptyPrompt))}}
+            @label={{"Disallow empty prompt"}}
+            @onChange={{action (mut disallowEmptyPrompt)}}/>
           <h4>Progress:</h4>
           <div class="layout-row flex">
             <div class="flex-50">
-              {{paper-checkbox
-                value=progressWillFail
+              <PaperCheckbox
+                @value={{progressWillFail}}
                 class="progress-will-fail"
-                label="Progress will fail"
-                onChange=(action (mut progressWillFail))}}
-              {{paper-checkbox
-                value=settled
+                @label={{"Progress will fail"}}
+                @onChange={{action (mut progressWillFail)}}/>
+              <PaperCheckbox
+                @value={{settled}}
                 class="progress-settled"
-                label="Progress won't stop on first failed"
-                onChange=(action (mut settled))}}
-              {{paper-checkbox
-                value=cancelable
+                @label={{"Progress won't stop on first failed"}}
+                @onChange={{action (mut settled)}}/>
+              <PaperCheckbox
+                @value={{cancelable}}
                 class="progress-cancelable"
-                label="Progress can be canceled"
-                onChange=(action (mut cancelable))}}
+                @label={{"Progress can be canceled"}}
+                @onChange={{action (mut cancelable)}}/>
             </div>
             <div class="flex-50">
-              {{paper-checkbox
-                value=progressCircular
+              <PaperCheckbox
+                @value={{progressCircular}}
                 class="progress-circular"
-                label="Progress bar is circular"
-                onChange=(action (mut progressCircular))}}
+                @label={{"Progress bar is circular"}}
+                @onChange={{action (mut progressCircular)}}/>
             </div>
           </div>
           <h4>Process:</h4>
-          {{paper-checkbox
-            value=processWillFail
+          <PaperCheckbox
+            @value={{processWillFail}}
             class="process-will-fail"
-            label="Process will fail"
-            onChange=(action (mut processWillFail))}}
+            @label={{"Process will fail"}}
+            @onChange={{action (mut processWillFail)}}/>
           <div class="layout-row flex">
             <div class="flex-50">
               <h4>Color for Process and Progress:</h4>
               {{! template-lint-disable attribute-indentation }}
-              {{#paper-radio-group
-                groupValue=(readonly colorType)
-                onChange=(action (mut colorType))
-              as |group|}}
-                {{#group.radio
-                  value="primary"}}
+              <PaperRadioGroup
+                @groupValue={{readonly colorType}}
+                @onChange={{action (mut colorType)}}
+              as |group|>
+                <group.radio
+                  @value={{"primary"}}>
                   Default
-                {{/group.radio}}
-                {{#group.radio
-                  value="warn"}}
+                </group.radio>
+                <group.radio
+                  @value={{"warn"}}>
                   Warn
-                {{/group.radio}}
-                {{#group.radio
-                  value="accent"}}
+                </group.radio>
+                <group.radio
+                  @value={{"accent"}}>
                   Accent
-                {{/group.radio}}
-              {{/paper-radio-group}}
+                </group.radio>
+              </PaperRadioGroup>
             </div>
             <div class="flex-50">
               <h4>Circular options:</h4>
               <div class="layout layout-align-center-center slider-container">
                 <span>Diameter:&nbsp;&nbsp;&nbsp;</span>
-                {{paper-slider
+                <PaperSlider
                   class="flex"
-                  min=0
-                  max=300
-                  value=circularDiameter
-                  onChange=(action (mut circularDiameter))}}
-                {{paper-input
-                  type="number"
-                  value=circularDiameter
-                  onChange=(action (mut circularDiameter))
-                  min=0
-                  max=300}}
+                  @min={{0}}
+                  @max={{300}}
+                  @value={{circularDiameter}}
+                  @onChange={{action (mut circularDiameter)}}/>
+                <PaperInput
+                  @type={{"number"}}
+                  @value={{circularDiameter}}
+                  @onChange={{action (mut circularDiameter)}}
+                  @min={{0}}
+                  @max={{300}}/>
               </div>
               <div class="layout layout-align-center-center slider-container">
                 <span>Stroke Radio:&nbsp;&nbsp;&nbsp;</span>
-                {{paper-slider
+                <PaperSlider
                   class="flex"
-                  min=0
-                  max=0.5
-                  value=circularStrokeRatio
-                  step=0.01
-                  onChange=(action (mut circularStrokeRatio))}}
-                {{paper-input
-                  type="number"
-                  value=circularStrokeRatio
-                  onChange=(action (mut circularStrokeRatio))
-                  min=0
-                  max=0.5}}
+                  @min={{0}}
+                  @max={{0.5}}
+                  @value={{circularStrokeRatio}}
+                  @step={{0.01}}
+                  @onChange={{action (mut circularStrokeRatio)}}/>
+                <PaperInput
+                  @type={{"number"}}
+                  @value={{circularStrokeRatio}}
+                  @onChange={{action (mut circularStrokeRatio)}}
+                  @min={{0}}
+                  @max={{0.5}}/>
               </div>
             </div>
           </div>
-        {{/paper-form}}
+        </PaperForm>
         {{outlet}}
       </div>
       <div class="flex-40">
@@ -326,13 +326,13 @@
         <pre>{{stringifiedOptions}}</pre>
         <p>Logs:</p>
         <p class="logs">{{#each messages as |message|}}{{message}}<br>{{/each}}</p>
-        {{#paper-button
-          raised=true
-          onClick=(action "cleanMessage")}}
+        <PaperButton
+          @raised={{true}}
+          @onClick={{action "cleanMessage"}}>
           Clear logs
-        {{/paper-button}}
+        </PaperButton>
       </div>
     </div>
-  {{/paper-content}}
+  </PaperContent>
 </div>
-{{modals-container}}
+<ModalsContainer/>

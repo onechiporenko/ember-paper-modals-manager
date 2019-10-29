@@ -14,7 +14,7 @@ Add component `modals-container` to the `application.hbs`:
 
 {{#docs-snippet name="application.hbs" title="application.hbs"}}
 {{outlet}}
-{{modals-container}}
+<ModalsContainer/>
 {{/docs-snippet}}
 
 **Thirdly:**
@@ -25,9 +25,10 @@ Inject a service `modals-manager` where you want to use modals:
 import Controller from '@ember/controller';
 import {inject as service} from '@ember/service';
 
-export default Controller.extend({
-  modalsManager: service()
-});
+export default MyController extends Controller {
+  @service()
+  modalsManager;
+}
 {{/docs-snippet}}
 
 That's it. Now you are able to use predefined modals from `modals-manager`.

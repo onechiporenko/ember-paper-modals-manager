@@ -1,12 +1,12 @@
 <div class="ad-font-sans ad-text-black ad-leading-normal min-h-screen">
-  {{#docs-header as |header|}}
+  <DocsHeader as |header|>
     {{#header.link "demo"}}
       Demo
     {{/header.link}}
-  {{/docs-header}}
+  </DocsHeader>
 
-  {{#docs-viewer as |viewer|}}
-    {{#viewer.nav as |nav|}}
+  <DocsViewer as |viewer|>
+    <viewer.nav as |nav|>
       {{nav.section "Introdaction"}}
       {{nav.item "Install" "docs.install"}}
       {{nav.item "Modals" "docs.modals.index"}}
@@ -19,14 +19,14 @@
       {{nav.item "Check Confirm" "docs.modals.check-confirm"}}
       {{nav.item "Process" "docs.modals.process"}}
       {{nav.item "Progress" "docs.modals.progress"}}
-    {{/viewer.nav}}
-    {{#viewer.main}}
+    </viewer.nav>
+    <viewer.main>
       <div class="docs-container">
         <div class="docs-section">
           {{outlet}}
         </div>
       </div>
-    {{/viewer.main}}
+    </viewer.main>
 
-  {{/docs-viewer}}
+  </DocsViewer>
 </div>

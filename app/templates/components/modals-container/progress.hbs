@@ -1,76 +1,76 @@
-{{#paper-dialog
-  fullscreen=options.fullscreen
-  escapeToClose=options.escapeToClose
-  opaque=options.opaque
-  focusOnOpen=options.focusOnOpen
-  clickOutsideToClose=options.clickOutsideToClose
-  closeTo=options.closeTo
-  openFrom=options.openFrom
-  origin=options.origin
-  parent=options.parent
-  onClose=(action "decline")}}
-  {{#if options.titleComponent}}
+<PaperDialog
+  @fullscreen={{@options.fullscreen}}
+  @escapeToClose={{@options.escapeToClose}}
+  @opaque={{@options.opaque}}
+  @focusOnOpen={{@options.focusOnOpen}}
+  @clickOutsideToClose={{@options.clickOutsideToClose}}
+  @closeTo={{@options.closeTo}}
+  @openFrom={{@options.openFrom}}
+  @origin={{@options.origin}}
+  @parent={{@options.parent}}
+  @onClose={{action "decline"}}>
+  {{#if @options.titleComponent}}
     {{component
-      options.titleComponent
-      options=options
+      @options.titleComponent
+      options=@options
       confirm=(action "confirm")
       decline=(action "decline")}}
   {{/if}}
-  {{#paper-dialog-content}}
+  <PaperDialogContent>
 
-    {{#unless options.titleComponent}}
-      <h2 class="md-title">{{options.title}}</h2>
+    {{#unless @options.titleComponent}}
+      <h2 class="md-title">{{@options.title}}</h2>
     {{/unless}}
 
-    {{#if options.bodyComponent}}
+    {{#if @options.bodyComponent}}
       {{component
-        options.bodyComponent
-        options=options
+        @options.bodyComponent
+        options=@options
         progress=progress
         done=done
         overall=promisesCount}}
     {{else}}
-      <p>{{options.body}}</p>
+      <p>{{@options.body}}</p>
       <div class="layout-row layout-align-center">
-        {{#if options.circular}}
-          {{paper-progress-circular
-            value=progress
-            class=options.circularClass
-            accent=options.circularAccent
-            warn=options.circularWarn
-            diameter=options.circularDiameter
-            strokeRatio=options.circularStrokeRatio}}
+        {{#if @options.circular}}
+          <PaperProgressCircular
+            @value={{progress}}
+            @class={{@options.circularClass}}
+            @accent={{@options.circularAccent}}
+            @warn={{@options.circularWarn}}
+            @diameter={{@options.circularDiameter}}
+            @strokeRatio={{@options.circularStrokeRatio}} />
         {{else}}
-          {{paper-progress-linear
-            value=progress
-            accent=options.linearAccent
-            warn=options.linearWarn}}
+          <PaperProgressLinear
+            @value={{progress}}
+            @accent={{@options.linearAccent}}
+            @warn={{@options.linearWarn}} />
         {{/if}}
       </div>
     {{/if}}
-  {{/paper-dialog-content}}
-  {{#paper-dialog-actions class="layout-row"}}
+  </PaperDialogContent>
+  <PaperDialogActions class="layout-row">
     <span class="flex"></span>
-    {{#if options.footerComponent}}
+    {{#if @options.footerComponent}}
       {{component
-        options.footerComponent
-        options=options}}
+        @options.footerComponent
+        options=@options}}
     {{else}}
-      {{#if options.cancelable}}
-        {{#paper-button
-          primary=options.declineButtonPrimary
-          fab=options.declineButtonFab
-          mini=options.declineButtonMini
-          noInk=options.declineButtonNoInk
-          raised=options.declineButtonRaised
-          iconButton=options.declineButtonIcon
-          onClick=(action "cancel")}}
-          {{#if options.declineButtonIcon}}
-            {{paper-icon options.declineButtonIcon}}
+      {{#if @options.cancelable}}
+        <PaperButton
+          @primary={{@options.declineButtonPrimary}}
+          @fab={{@options.declineButtonFab}}
+          @mini={{@options.declineButtonMini}}
+          @noInk={{@options.declineButtonNoInk}}
+          @raised={{@options.declineButtonRaised}}
+          @iconButton={{@options.declineButtonIcon}}
+          @onClick={{action "cancel"}}>
+          {{#if @options.declineButtonIcon}}
+            {{paper-icon @options.declineButtonIcon}}
           {{/if}}
-          {{options.cancel}}
-        {{/paper-button}}
+          {{@options.cancel}}
+        </PaperButton>
       {{/if}}
     {{/if}}
-  {{/paper-dialog-actions}}
-{{/paper-dialog}}
+  </PaperDialogActions>
+</PaperDialog>

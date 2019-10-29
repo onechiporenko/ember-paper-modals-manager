@@ -5,32 +5,32 @@ This modal is used to show a "placeholder" while some process is running. This m
 {{#docs-snippet name="show-process-modal.js" title="Process Modal"}}
 import Controller from '@ember/controller';
 import {inject as service} from '@ember/service';
-import {get} from '@ember/object';
+import {action, get} from '@ember/object';
 import {Promise} from 'rsvp';
 
-export default Controller.extend({
-  modalsManager: service(),
+export default class ProcessModalDemoController extends Controller {
+  @service()
+  modalsManager;
 
-  actions: {
-    showProcessModal() {
-      get(this, 'modalsManager')
-        .process({
-          body: 'Some text goes here',
-          title: '',
-          // this is required
-          process: () => new Promise(resolve => setTimeout(resolve(1), 100))
-        })
-        .then(result => {
-          // called after `process` is resolved
-          // here "result" is value of fulfilled Promise
-        })
-        .catch(error => {
-          // called after `process` is rejected
-          // here "error" is a reason why last promise was rejected
-        });
-    }
+  @action
+  showProcessModal() {
+    get(this, 'modalsManager')
+      .process({
+        body: 'Some text goes here',
+        title: '',
+        // this is required
+        process: () => new Promise(resolve => setTimeout(resolve(1), 100))
+      })
+      .then(result => {
+        // called after `process` is resolved
+        // here "result" is value of fulfilled Promise
+      })
+      .catch(error => {
+        // called after `process` is rejected
+        // here "error" is a reason why last promise was rejected
+      });
   }
-});
+}
 {{/docs-snippet}}
 
 `process` has several extra options:
@@ -50,26 +50,27 @@ export default Controller.extend({
 {{#docs-snippet name="show-custom-process-modal.js" title="Custom Process Modal"}}
 import Controller from '@ember/controller';
 import {inject as service} from '@ember/service';
-import {get} from '@ember/object';
+import {action, get} from '@ember/object';
 import {Promise} from 'rsvp';
 
-export default Controller.extend({
-  modalsManager: service(),
+export default class ProcessModalDemoController extends Controller {
 
-  actions: {
-    showProcessModal() {
-      get(this, 'modalsManager')
-        .process({
-          bodyComponent: 'custom-process-body',
-          headerComponent: 'custom-process-footer',
-          footerComponent: 'custom-process-header',
-          process: () => new Promise(resolve => setTimeout(resolve(1), 100))
-        })
-        .then(result => {})
-        .catch(error => {});
-    }
+  @service()
+  modalsManager;
+
+  @action
+  showProcessModal() {
+    get(this, 'modalsManager')
+      .process({
+        bodyComponent: 'custom-process-body',
+        headerComponent: 'custom-process-footer',
+        footerComponent: 'custom-process-header',
+        process: () => new Promise(resolve => setTimeout(resolve(1), 100))
+      })
+      .then(result => {})
+      .catch(error => {});
   }
-});
+}
 {{/docs-snippet}}
 
 ### Title Component

@@ -1,4 +1,4 @@
-{{docs-hero
-  prefix="Paper"
-  heading="Modals Manager"
-  byline="Modals-manager for modals from ember-paper"}}
+<DocsHero
+  @prefix={{"Paper"}}
+  @heading={{"Modals Manager"}}
+  @byline={{"Modals-manager for modals from ember-paper"}}/>

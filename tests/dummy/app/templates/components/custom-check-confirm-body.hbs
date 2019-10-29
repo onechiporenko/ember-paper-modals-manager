@@ -1,6 +1,6 @@
 {{! BEGIN-SNIPPET components-custom-check-confirm-body.hbs }}
 <p>Custom Check Confirm Body Component</p>
-{{#paper-form}}
-  {{paper-checkbox value=promptValue onChange=updatePromptValue}}
-{{/paper-form}}
+<PaperForm>
+  <PaperCheckbox @value={{promptValue}} @onChange={{updatePromptValue}} />
+</PaperForm>
 {{! END-SNIPPET }}

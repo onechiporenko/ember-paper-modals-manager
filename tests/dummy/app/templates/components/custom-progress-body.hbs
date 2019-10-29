@@ -1,17 +1,17 @@
 {{! BEGIN-SNIPPET components-custom-progress-body.hbs }}
 <p>Custom Progress Body Component {{done}} / {{overall}}</p>
-{{#if options.circular}}
-  {{paper-progress-circular
-    value=progress
-    class=options.circularClass
-    accent=options.circularAccent
-    warn=options.circularWarn
-    diameter=options.circularDiameter
-    strokeRatio=options.circularStrokeRatio}}
+{{#if @options.circular}}
+  <PaperProgressCircular
+    @value={{progress}}
+    @class={{@options.circularClass}}
+    @accent={{@options.circularAccent}}
+    @warn={{@options.circularWarn}}
+    @diameter={{@options.circularDiameter}}
+    @strokeRatio={{@options.circularStrokeRatio}}/>
 {{else}}
-  {{paper-progress-linear
-    value=progress
-    accent=options.linearAccent
-    warn=options.linearWarn}}
+  <PaperProgressLinear
+    @value={{progress}}
+    @accent={{@options.linearAccent}}
+    @warn={{@options.linearWarn}}/>
 {{/if}}
 {{! END-SNIPPET }}

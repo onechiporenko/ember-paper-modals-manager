@@ -1,13 +1,13 @@
 <div>
-  {{#docs-header as |header|}}
+  <DocsHeader as |header|>
     {{#header.link "demo"}}
       Demo
     {{/header.link}}
-  {{/docs-header}}
-  {{docs-hero
-    prefix="Paper"
-    heading="Modals Manager"
-    byline="Modals-manager for modals from ember-paper"}}
+  </DocsHeader>
+  <DocsHero
+    @prefix={{"Paper"}}
+    @heading={{"Modals Manager"}}
+    @byline={{"Modals-manager for modals from ember-paper"}}/>
   <div class="docs-container docs-md">
     <h2 class="docs-flex docs-items-center docs-mt-8 docs-h2">About</h2>
 

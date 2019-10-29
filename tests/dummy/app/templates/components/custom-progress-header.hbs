@@ -1,9 +1,9 @@
 {{! BEGIN-SNIPPET components-custom-progress-header.hbs }}
-{{#paper-toolbar}}
-  {{#paper-toolbar-tools}}
+<PaperToolbar>
+  <PaperToolbarTools>
     <h2 class="md-title">
-      {{paper-icon icon="warning"}} Custom Progress Title Component
+      <PaperIcon @icon={{"warning"}}/> Custom Progress Title Component
     </h2>
-  {{/paper-toolbar-tools}}
-{{/paper-toolbar}}
+  </PaperToolbarTools>
+</PaperToolbar>
 {{! END-SNIPPET }}

@@ -1,82 +1,82 @@
-{{#paper-dialog
-  fullscreen=options.fullscreen
-  escapeToClose=options.escapeToClose
-  opaque=options.opaque
-  focusOnOpen=options.focusOnOpen
-  clickOutsideToClose=options.clickOutsideToClose
-  closeTo=options.closeTo
-  openFrom=options.openFrom
-  origin=options.origin
-  parent=options.parent
-  onClose=(action "decline")}}
-  {{#if options.titleComponent}}
+<PaperDialog
+  @fullscreen={{@options.fullscreen}}
+  @escapeToClose={{@options.escapeToClose}}
+  @opaque={{@options.opaque}}
+  @focusOnOpen={{@options.focusOnOpen}}
+  @clickOutsideToClose={{@options.clickOutsideToClose}}
+  @closeTo={{@options.closeTo}}
+  @openFrom={{@options.openFrom}}
+  @origin={{@options.origin}}
+  @parent={{@options.parent}}
+  @onClose={{action "decline"}}>
+  {{#if @options.titleComponent}}
     {{component
-      options.titleComponent
-      options=options
+      @options.titleComponent
+      options=@options
       confirm=(action "confirm")
       decline=(action "decline")}}
   {{/if}}
-  {{#paper-dialog-content}}
+  <PaperDialogContent>
 
-    {{#unless options.titleComponent}}
-      <h2 class="md-title">{{options.title}}</h2>
+    {{#unless @options.titleComponent}}
+      <h2 class="md-title">{{@options.title}}</h2>
     {{/unless}}
 
-    {{#if options.bodyComponent}}
+    {{#if @options.bodyComponent}}
       {{component
-        options.bodyComponent
-        options=options
+        @options.bodyComponent
+        options=@options
         promptValue=promptValue
         updatePromptValue=(action "updatePromptValue")}}
     {{else}}
-      <p>{{options.body}}</p>
-      {{#paper-form onSubmit=(action "confirm")}}
-        {{paper-checkbox
-          label=options.inputLabel
-          value=promptValue
-          onChange=(action (mut promptValue))
-          required=true}}
-      {{/paper-form}}
+      <p>{{@options.body}}</p>
+      <PaperForm @onSubmit={{action "confirm"}}>
+        <PaperCheckbox
+          @label={{@options.inputLabel}}
+          @value={{promptValue}}
+          @onChange={{action (mut promptValue)}}
+          @required={{true}} />
+      </PaperForm>
     {{/if}}
-  {{/paper-dialog-content}}
-  {{#paper-dialog-actions class="layout-row"}}
+  </PaperDialogContent>
+  <PaperDialogActions class="layout-row">
     <span class="flex"></span>
-    {{#if options.footerComponent}}
+    {{#if @options.footerComponent}}
       {{component
-        options.footerComponent
-        options=options
+        @options.footerComponent
+        options=@options
         confirmDisabled=confirmDisabled
         confirm=(action "confirm")
         decline=(action "decline")}}
     {{else}}
-      <p>{{options.footer}}</p>
-      {{#paper-button
-        primary=options.declineButtonPrimary
-        fab=options.declineButtonFab
-        mini=options.declineButtonMini
-        noInk=options.declineButtonNoInk
-        raised=options.declineButtonRaised
-        iconButton=options.declineButtonIcon
-        onClick=(action "decline")}}
-        {{#if options.declineButtonIcon}}
-          {{paper-icon options.declineButtonIcon}}
+      <p>{{@options.footer}}</p>
+      <PaperButton
+        @primary={{@options.declineButtonPrimary}}
+        @fab={{@options.declineButtonFab}}
+        @mini={{@options.declineButtonMini}}
+        @noInk={{@options.declineButtonNoInk}}
+        @raised={{@options.declineButtonRaised}}
+        @iconButton={{@options.declineButtonIcon}}
+        @onClick={{action "decline"}}>
+        {{#if @options.declineButtonIcon}}
+          {{paper-icon @options.declineButtonIcon}}
         {{/if}}
-        {{options.decline}}
-      {{/paper-button}}
-      {{#paper-button
-        primary=options.confirmButtonPrimary
-        fab=options.confirmButtonFab
-        mini=options.confirmButtonMini
-        noInk=options.confirmButtonNoInk
-        raised=options.confirmButtonRaised
-        iconButton=options.confirmButtonIcon
-        disabled=confirmDisabled
-        onClick=(action "confirm")}}
-        {{#if options.confirmButtonIcon}}
-          {{paper-icon options.confirmButtonIcon}}
+        {{@options.decline}}
+      </PaperButton>
+      <PaperButton
+        @primary={{@options.confirmButtonPrimary}}
+        @fab={{@options.confirmButtonFab}}
+        @mini={{@options.confirmButtonMini}}
+        @noInk={{@options.confirmButtonNoInk}}
+        @raised={{@options.confirmButtonRaised}}
+        @iconButton={{@options.confirmButtonIcon}}
+        @disabled={{confirmDisabled}}
+        @onClick={{action "confirm"}}>
+        {{#if @options.confirmButtonIcon}}
+          {{paper-icon @options.confirmButtonIcon}}
         {{/if}}
-        {{options.confirm}}
-      {{/paper-button}}
+        {{@options.confirm}}
+      </PaperButton>
     {{/if}}
-  {{/paper-dialog-actions}}
-{{/paper-dialog}}
+  </PaperDialogActions>
+</PaperDialog>

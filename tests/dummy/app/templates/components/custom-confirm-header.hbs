@@ -1,15 +1,15 @@
 {{! BEGIN-SNIPPET components-custom-confirm-header.hbs }}
-{{#paper-toolbar}}
-  {{#paper-toolbar-tools}}
+<PaperToolbar>
+  <PaperToolbarTools>
     <h2 class="md-title">
-      {{paper-icon icon="warning"}} Custom Confirm Title Component
+      <PaperIcon @icon={{"warning"}}/> Custom Confirm Title Component
     </h2>
     <span class="flex"></span>
-    {{#paper-button
-      iconButton=true
-      onClick=(action decline)}}
-      {{paper-icon "close"}}
-    {{/paper-button}}
-  {{/paper-toolbar-tools}}
-{{/paper-toolbar}}
+    <PaperButton
+      @iconButton={{true}}
+      @onClick={{action decline}}>
+      <PaperIcon @icon={{"close"}}/>
+    </PaperButton>
+  </PaperToolbarTools>
+</PaperToolbar>
 {{! END-SNIPPET }}

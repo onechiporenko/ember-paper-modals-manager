@@ -1,49 +1,49 @@
-{{#paper-dialog
-  fullscreen=options.fullscreen
-  escapeToClose=options.escapeToClose
-  opaque=options.opaque
-  focusOnOpen=options.focusOnOpen
-  clickOutsideToClose=options.clickOutsideToClose
-  closeTo=options.closeTo
-  openFrom=options.openFrom
-  origin=options.origin
-  parent=options.parent
-  onClose=(action "decline")}}
-  {{#if options.titleComponent}}
+<PaperDialog
+  @fullscreen={{@options.fullscreen}}
+  @escapeToClose={{@options.escapeToClose}}
+  @opaque={{@options.opaque}}
+  @focusOnOpen={{@options.focusOnOpen}}
+  @clickOutsideToClose={{@options.clickOutsideToClose}}
+  @closeTo={{@options.closeTo}}
+  @openFrom={{@options.openFrom}}
+  @origin={{@options.origin}}
+  @parent={{@options.parent}}
+  @onClose={{action "decline"}}>
+  {{#if @options.titleComponent}}
     {{component
-      options.titleComponent
-      options=options
+      @options.titleComponent
+      options=@options
       confirm=(action "confirm")
       decline=(action "decline")}}
   {{/if}}
-  {{#paper-dialog-content}}
+  <PaperDialogContent>
 
-    {{#unless options.titleComponent}}
-      <h2 class="md-title">{{options.title}}</h2>
+    {{#unless @options.titleComponent}}
+      <h2 class="md-title">{{@options.title}}</h2>
     {{/unless}}
 
-    {{#if options.bodyComponent}}
+    {{#if @options.bodyComponent}}
       {{component
-        options.bodyComponent
-        options=options}}
+        @options.bodyComponent
+        options=@options}}
     {{else}}
-      <p>{{options.body}}</p>
+      <p>{{@options.body}}</p>
       <div class="layout-row layout-align-center">
-        {{paper-progress-circular
-          class=options.circularClass
-          accent=options.circularAccent
-          warn=options.circularWarn
-          diameter=options.circularDiameter
-          strokeRatio=options.circularStrokeRatio}}
+        <PaperProgressCircular
+          class={{@options.circularClass}}
+          @accent={{@options.circularAccent}}
+          @warn={{@options.circularWarn}}
+          @diameter={{@options.circularDiameter}}
+          @strokeRatio={{@options.circularStrokeRatio}} />
       </div>
     {{/if}}
-  {{/paper-dialog-content}}
-  {{#paper-dialog-actions class="layout-row"}}
+  </PaperDialogContent>
+  <PaperDialogActions class="layout-row">
     <span class="flex"></span>
-    {{#if options.footerComponent}}
+    {{#if @options.footerComponent}}
       {{component
-        options.footerComponent
-        options=options}}
+        @options.footerComponent
+        options=@options}}
     {{/if}}
-  {{/paper-dialog-actions}}
-{{/paper-dialog}}
+  </PaperDialogActions>
+</PaperDialog>
