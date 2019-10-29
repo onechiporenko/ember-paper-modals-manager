@@ -34,7 +34,7 @@
         <form.input
           @label={{options.inputLabel}}
           @value={{promptValue}}
-          @onChange={{action (mut promptValue)}} />
+          @onChange={{action (mut promptValue)}}/>
       </PaperForm>
     {{/if}}
   </PaperDialogContent>
@@ -58,7 +58,7 @@
         @iconButton={{@options.declineButtonIcon}}
         @onClick={{action "decline"}}>
         {{#if @options.declineButtonIcon}}
-          {{paper-icon @options.declineButtonIcon}}
+          <PaperIcon @icon={{@options.declineButtonIcon}}/>
         {{/if}}
         {{@options.decline}}
       </PaperButton>
@@ -72,7 +72,7 @@
         @disabled={{confirmDisabled}}
         @onClick={{action "confirm"}}>
         {{#if @options.confirmButtonIcon}}
-          {{paper-icon @options.confirmButtonIcon}}
+          <PaperIcon @icon={{@options.confirmButtonIcon}}/>
         {{/if}}
         {{@options.confirm}}
       </PaperButton>

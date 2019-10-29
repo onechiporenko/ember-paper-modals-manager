@@ -39,12 +39,12 @@
             @accent={{@options.circularAccent}}
             @warn={{@options.circularWarn}}
             @diameter={{@options.circularDiameter}}
-            @strokeRatio={{@options.circularStrokeRatio}} />
+            @strokeRatio={{@options.circularStrokeRatio}}/>
         {{else}}
           <PaperProgressLinear
             @value={{progress}}
             @accent={{@options.linearAccent}}
-            @warn={{@options.linearWarn}} />
+            @warn={{@options.linearWarn}}/>
         {{/if}}
       </div>
     {{/if}}
@@ -66,7 +66,7 @@
           @iconButton={{@options.declineButtonIcon}}
           @onClick={{action "cancel"}}>
           {{#if @options.declineButtonIcon}}
-            {{paper-icon @options.declineButtonIcon}}
+            <PaperIcon @icon={{@options.declineButtonIcon}}/>
           {{/if}}
           {{@options.cancel}}
         </PaperButton>
