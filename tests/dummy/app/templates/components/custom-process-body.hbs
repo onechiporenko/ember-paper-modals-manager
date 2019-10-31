@@ -2,11 +2,11 @@
 <p>Custom Process Body Component</p>
 <p>{{@options.body}}</p>
 <div class="layout-row layout-align-center">
-  <PaperProgressCircular
-    @class={{@options.circularClass}}
-    @accent={{@options.circularAccent}}
-    @warn={{@options.circularWarn}}
-    @diameter={{@options.circularDiameter}}
-    @strokeRatio={{@options.circularStrokeRatio}}/>
+  {{paper-progress-circular
+    class=@options.circularClass
+    accent=@options.circularAccent
+    warn=@options.circularWarn
+    diameter=@options.circularDiameter
+    strokeRatio=@options.circularStrokeRatio}}
 </div>
 {{! END-SNIPPET }}

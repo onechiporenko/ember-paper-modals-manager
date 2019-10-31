@@ -2,8 +2,8 @@
 <p>Custom Prompt Confirm Body Component</p>
 <p>Please enter a "{{@options.promptValue}}" without quotes</p>
 <PaperForm as |form|>
-  <form.input
-    @value={{promptValue}}
-    @onChange={{updatePromptValue}}/>
+  {{form.input
+    value=promptValue
+    onChange=updatePromptValue}}
 </PaperForm>
 {{! END-SNIPPET }}

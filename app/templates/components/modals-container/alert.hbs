@@ -49,7 +49,7 @@
         @iconButton={{@options.confirmButtonIcon}}
         @onClick={{action "confirm"}}>
         {{#if @options.confirmButtonIcon}}
-          <PaperIcon @icon={{@options.confirmButtonIcon}}/>
+          {{paper-icon @options.confirmButtonIcon}}
         {{/if}}
         {{@options.confirm}}
       </PaperButton>

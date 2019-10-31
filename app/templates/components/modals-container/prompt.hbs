@@ -31,10 +31,10 @@
     {{else}}
       <p>{{@options.body}}</p>
       <PaperForm @onSubmit={{action "confirm"}} as |form|>
-        <form.input
-          @label={{options.inputLabel}}
-          @value={{promptValue}}
-          @onChange={{action (mut promptValue)}}/>
+        {{form.input
+          label=options.inputLabel
+          value=promptValue
+          onChange=(action (mut promptValue))}}
       </PaperForm>
     {{/if}}
   </PaperDialogContent>
@@ -58,7 +58,7 @@
         @iconButton={{@options.declineButtonIcon}}
         @onClick={{action "decline"}}>
         {{#if @options.declineButtonIcon}}
-          <PaperIcon @icon={{@options.declineButtonIcon}}/>
+          {{paper-icon @options.declineButtonIcon}}
         {{/if}}
         {{@options.decline}}
       </PaperButton>
@@ -72,7 +72,7 @@
         @disabled={{confirmDisabled}}
         @onClick={{action "confirm"}}>
         {{#if @options.confirmButtonIcon}}
-          <PaperIcon @icon={{@options.confirmButtonIcon}}/>
+          {{paper-icon @options.confirmButtonIcon}}
         {{/if}}
         {{@options.confirm}}
       </PaperButton>
