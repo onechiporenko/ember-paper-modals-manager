@@ -15,6 +15,6 @@
 
 ## Demo and docs
 
-Check [demo-page](https://onechiporenko.github.io/ember-paper-modals-manager/demo)
+Check [demo-page](https://onechiporenko.github.io/ember-paper-modals-manager/versions/master/demo)
 
-Check [docs-page](https://onechiporenko.github.io/ember-paper-modals-manager)
+Check [docs-page](https://onechiporenko.github.io/ember-paper-modals-manager/versions/master)
