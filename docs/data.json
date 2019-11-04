@@ -1,0 +1,193 @@
+{
+    "project": {
+        "name": "ember-paper-modals-manager",
+        "description": "The default blueprint for ember-cli addons.",
+        "version": "v1.6.0"
+    },
+    "files": {
+        "addon/services/modals-manager.js": {
+            "name": "addon/services/modals-manager.js",
+            "modules": {},
+            "classes": {
+                "addon/services/modals-manager.js~ModalsManager": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "addon/services/modals-manager.js~ModalsManager": {
+            "name": "addon/services/modals-manager.js~ModalsManager",
+            "shortname": "addon/services/modals-manager.js~ModalsManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "addon/services/modals-manager.js",
+            "line": 3
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "addon/services/modals-manager.js",
+            "line": 8,
+            "description": "Shows custom modal",
+            "itemtype": "method",
+            "name": "show",
+            "params": [
+                {
+                    "name": "componentName",
+                    "description": "component's name with custom modal",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "RSVP.Promise"
+            },
+            "class": "addon/services/modals-manager.js~ModalsManager"
+        },
+        {
+            "file": "addon/services/modals-manager.js",
+            "line": 17,
+            "description": "Shows `alert`-modal",
+            "itemtype": "method",
+            "name": "alert",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "RSVP.Promise"
+            },
+            "class": "addon/services/modals-manager.js~ModalsManager"
+        },
+        {
+            "file": "addon/services/modals-manager.js",
+            "line": 25,
+            "description": "Shows `confirm`-modal",
+            "itemtype": "method",
+            "name": "confirm",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "RSVP.Promise"
+            },
+            "class": "addon/services/modals-manager.js~ModalsManager"
+        },
+        {
+            "file": "addon/services/modals-manager.js",
+            "line": 33,
+            "description": "Shows `prompt`-modal",
+            "itemtype": "method",
+            "name": "prompt",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "RSVP.Promise"
+            },
+            "class": "addon/services/modals-manager.js~ModalsManager"
+        },
+        {
+            "file": "addon/services/modals-manager.js",
+            "line": 41,
+            "description": "Shows `prompt-confirm`-modal",
+            "itemtype": "method",
+            "name": "promptConfirm",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "RSVP.Promise"
+            },
+            "class": "addon/services/modals-manager.js~ModalsManager"
+        },
+        {
+            "file": "addon/services/modals-manager.js",
+            "line": 49,
+            "description": "Show `check-confirm`-modal",
+            "itemtype": "method",
+            "name": "checkConfirm",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "RSVP.Promise"
+            },
+            "class": "addon/services/modals-manager.js~ModalsManager"
+        },
+        {
+            "file": "addon/services/modals-manager.js",
+            "line": 57,
+            "description": "Shows `progress`-modal",
+            "itemtype": "method",
+            "name": "progress",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "RSVP.Promise"
+            },
+            "class": "addon/services/modals-manager.js~ModalsManager"
+        },
+        {
+            "file": "addon/services/modals-manager.js",
+            "line": 65,
+            "description": "Shows `process`-modal",
+            "itemtype": "method",
+            "name": "process",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "RSVP.Promise"
+            },
+            "class": "addon/services/modals-manager.js~ModalsManager"
+        }
+    ],
+    "warnings": []
+}
