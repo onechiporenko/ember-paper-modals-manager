@@ -1,33 +1,35 @@
 <PaperDialog
-  @fullscreen={{@options.fullscreen}}
-  @escapeToClose={{@options.escapeToClose}}
-  @opaque={{@options.opaque}}
-  @focusOnOpen={{@options.focusOnOpen}}
-  @clickOutsideToClose={{@options.clickOutsideToClose}}
-  @closeTo={{@options.closeTo}}
-  @openFrom={{@options.openFrom}}
-  @origin={{@options.origin}}
-  @parent={{@options.parent}}
+  @fullscreen={{this.options.fullscreen}}
+  @escapeToClose={{this.options.escapeToClose}}
+  @opaque={{this.options.opaque}}
+  @focusOnOpen={{this.options.focusOnOpen}}
+  @clickOutsideToClose={{this.options.clickOutsideToClose}}
+  @closeTo={{this.options.closeTo}}
+  @openFrom={{this.options.openFrom}}
+  @origin={{this.options.origin}}
+  @parent={{this.options.parent}}
   @onClose={{this.decline}}>
-  {{#if @options.titleComponent}}
+  {{#if this.options.titleComponent}}
     {{component
-      @options.titleComponent
-      options=@options
+      this.options.titleComponent
+      options=this.options
       confirm=this.confirm
-      decline=this.decline}}
+      decline=this.decline
+    }}
   {{/if}}
   <PaperDialogContent>
 
-    {{#unless @options.titleComponent}}
-      <h2 class="md-title">{{@options.title}}</h2>
+    {{#unless this.options.titleComponent}}
+      <h2 class="md-title">{{this.options.title}}</h2>
     {{/unless}}
 
-    {{#if @options.bodyComponent}}
+    {{#if this.options.bodyComponent}}
       {{component
-        @options.bodyComponent
-        options=@options}}
+        this.options.bodyComponent
+        options=this.options
+      }}
     {{else}}
-      <p>{{@options.body}}</p>
+      <p>{{this.options.body}}</p>
       <div class="layout-row layout-align-center">
         <PaperProgressCircular
           class={{this.options.circularClass}}
@@ -40,10 +42,11 @@
   </PaperDialogContent>
   <PaperDialogActions class="layout-row">
     <span class="flex"></span>
-    {{#if @options.footerComponent}}
+    {{#if this.options.footerComponent}}
       {{component
-        @options.footerComponent
-        options=@options}}
+        this.options.footerComponent
+        options=this.options
+      }}
     {{/if}}
   </PaperDialogActions>
 </PaperDialog>

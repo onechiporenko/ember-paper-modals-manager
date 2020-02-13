@@ -1,6 +1,6 @@
 {{! BEGIN-SNIPPET components-custom-progress-body.hbs }}
 <p>Custom Progress Body Component {{@done}} / {{@overall}}</p>
-{{#if @options.circular}}
+{{#if this.options.circular}}
   <PaperProgressCircular
     @value={{this.progress}}
     class={{this.options.circularClass}}
