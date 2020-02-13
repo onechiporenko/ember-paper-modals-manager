@@ -8,13 +8,13 @@
   @openFrom={{@options.openFrom}}
   @origin={{@options.origin}}
   @parent={{@options.parent}}
-  @onClose={{action "decline"}}>
+  @onClose={{this.decline}}>
   {{#if @options.titleComponent}}
     {{component
       @options.titleComponent
       options=@options
-      confirm=(action "confirm")
-      decline=(action "decline")}}
+      confirm=this.confirm
+      decline=this.decline}}
   {{/if}}
   <PaperDialogContent>
 
@@ -26,16 +26,16 @@
       {{component
         @options.bodyComponent
         options=@options
-        promptValue=promptValue
-        updatePromptValue=(action "updatePromptValue")}}
+        promptValue=this.promptValue
+        updatePromptValue=this.updatePromptValue}}
     {{else}}
       <p>{{@options.body}}</p>
-      <PaperForm @onSubmit={{action "confirm"}} as |form|>
-        {{form.input
-          label=@options.inputLabel
-          value=promptValue
-          onChange=(action (mut promptValue))
-          required=true}}
+      <PaperForm @onSubmit={{this.confirm}} as |form|>
+        <form.input
+          @label={{@options.inputLabel}}
+          @value={{this.promptValue}}
+          @onChange={{fn (mut this.promptValue)}}
+          @required={{true}}/>
       </PaperForm>
     {{/if}}
   </PaperDialogContent>
@@ -45,9 +45,9 @@
       {{component
         @options.footerComponent
         options=@options
-        confirmDisabled=confirmDisabled
-        confirm=(action "confirm")
-        decline=(action "decline")}}
+        confirmDisabled=this.confirmDisabled
+        confirm=this.confirm
+        decline=this.decline}}
     {{else}}
       <p>{{@options.footer}}</p>
       <PaperButton
@@ -57,9 +57,9 @@
         @noInk={{@options.declineButtonNoInk}}
         @raised={{@ptions.declineButtonRaised}}
         @iconButton={{@options.declineButtonIcon}}
-        @onClick={{action "decline"}}>
+        @onClick={{this.decline}}>
         {{#if @options.declineButtonIcon}}
-          {{paper-icon @options.declineButtonIcon}}
+          <PaperIcon @icon={{@options.declineButtonIcon}}/>
         {{/if}}
         {{@options.decline}}
       </PaperButton>
@@ -70,10 +70,10 @@
         @noInk={{@options.confirmButtonNoInk}}
         @raised={{@options.confirmButtonRaised}}
         @iconButton={{@options.confirmButtonIcon}}
-        @disabled={{confirmDisabled}}
-        @onClick={{action "confirm"}}>
+        @disabled={{this.confirmDisabled}}
+        @onClick={{this.confirm}}>
         {{#if @options.confirmButtonIcon}}
-          {{paper-icon @options.confirmButtonIcon}}
+          <PaperIcon @icon={{@options.confirmButtonIcon}}/>
         {{/if}}
         {{@options.confirm}}
       </PaperButton>

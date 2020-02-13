@@ -8,18 +8,18 @@
   @openFrom={{@options.openFrom}}
   @origin={{@options.origin}}
   @parent={{@options.parent}}
-  @onClose={{action "decline"}}>
+  @onClose={{this.decline}}>
   {{#if @options.titleComponent}}
     {{component
       @options.titleComponent
       options=@options
-      confirm=(action "confirm")
-      decline=(action "decline")}}
+      confirm=this.confirm
+      decline=this.decline}}
   {{/if}}
   <PaperDialogContent>
 
-    {{#unless options.titleComponent}}
-      <h2 class="md-title">{{options.title}}</h2>
+    {{#unless @options.titleComponent}}
+      <h2 class="md-title">{{@options.title}}</h2>
     {{/unless}}
 
     {{#if @options.bodyComponent}}
@@ -36,8 +36,8 @@
       {{component
         @options.footerComponent
         options=@options
-        confirm=(action "confirm")
-        decline=(action "decline")}}
+        confirm=this.confirm
+        decline=this.decline}}
     {{else}}
       <p>{{@options.footer}}</p>
       <PaperButton
@@ -47,9 +47,9 @@
         @noInk={{@options.declineButtonNoInk}}
         @raised={{@options.declineButtonRaised}}
         @iconButton={{@options.declineButtonIcon}}
-        @onClick={{action "decline"}}>
+        @onClick={{this.decline}}>
         {{#if @options.declineButtonIcon}}
-          {{paper-icon @options.declineButtonIcon}}
+          <PaperIcon @icon={{@options.declineButtonIcon}}/>
         {{/if}}
         {{@options.decline}}
       </PaperButton>
@@ -60,9 +60,9 @@
         @noInk={{@options.confirmButtonNoInk}}
         @raised={{@options.confirmButtonRaised}}
         @iconButton={{@options.confirmButtonIcon}}
-        @onClick={{action "confirm"}}>
+        @onClick={{this.confirm}}>
         {{#if @options.confirmButtonIcon}}
-          {{paper-icon @options.confirmButtonIcon}}
+          <PaperIcon @icon={{@options.confirmButtonIcon}}/>
         {{/if}}
         {{@options.confirm}}
       </PaperButton>

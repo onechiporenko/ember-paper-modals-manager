@@ -8,13 +8,13 @@
   @openFrom={{@options.openFrom}}
   @origin={{@options.origin}}
   @parent={{@options.parent}}
-  @onClose={{action "decline"}}>
+  @onClose={{this.decline}}>
   {{#if @options.titleComponent}}
     {{component
       @options.titleComponent
       options=@options
-      confirm=(action "confirm")
-      decline=(action "decline")}}
+      confirm=this.confirm
+      decline=this.decline}}
   {{/if}}
   <PaperDialogContent>
 
@@ -29,12 +29,12 @@
     {{else}}
       <p>{{@options.body}}</p>
       <div class="layout-row layout-align-center">
-        {{paper-progress-circular
-          class=@options.circularClass
-          accent=@options.circularAccent
-          warn=@options.circularWarn
-          diameter=@options.circularDiameter
-          strokeRatio=@options.circularStrokeRatio}}
+        <PaperProgressCircular
+          class={{this.options.circularClass}}
+          @accent={{this.options.circularAccent}}
+          @warn={{this.options.circularWarn}}
+          @diameter={{this.options.circularDiameter}}
+          @strokeRatio={{this.options.circularStrokeRatio}}/>
       </div>
     {{/if}}
   </PaperDialogContent>

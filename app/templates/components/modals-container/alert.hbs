@@ -8,13 +8,13 @@
   @openFrom={{@options.openFrom}}
   @origin={{@options.origin}}
   @parent={{@options.parent}}
-  @onClose={{action "decline"}}>
+  @onClose={{this.decline}}>
   {{#if @options.titleComponent}}
     {{component
       @options.titleComponent
       options=@options
-      confirm=(action "confirm")
-      decline=(action "decline")}}
+      confirm=this.confirm
+      decline=this.decline}}
   {{/if}}
   <PaperDialogContent>
 
@@ -32,12 +32,12 @@
   </PaperDialogContent>
   <PaperDialogActions class="layout-row">
     <span class="flex"></span>
-    {{#if options.footerComponent}}
+    {{#if @options.footerComponent}}
       {{component
         @options.footerComponent
         options=@options
-        confirm=(action "confirm")
-        decline=(action "decline")}}
+        confirm=this.confirm
+        decline=this.decline}}
     {{else}}
       <p>{{@options.footer}}</p>
       <PaperButton
@@ -47,9 +47,9 @@
         @noInk={{@options.confirmButtonNoInk}}
         @raised={{@options.confirmButtonRaised}}
         @iconButton={{@options.confirmButtonIcon}}
-        @onClick={{action "confirm"}}>
+        @onClick={{this.confirm}}>
         {{#if @options.confirmButtonIcon}}
-          {{paper-icon @options.confirmButtonIcon}}
+          <PaperIcon @icon={{@options.confirmButtonIcon}}/>
         {{/if}}
         {{@options.confirm}}
       </PaperButton>

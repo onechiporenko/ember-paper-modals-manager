@@ -8,13 +8,13 @@
   @openFrom={{@options.openFrom}}
   @origin={{@options.origin}}
   @parent={{@options.parent}}
-  @onClose={{action "decline"}}>
+  @onClose={{this.decline}}>
   {{#if @options.titleComponent}}
     {{component
       @options.titleComponent
       options=@options
-      confirm=(action "confirm")
-      decline=(action "decline")}}
+      confirm=this.confirm
+      decline=this.decline}}
   {{/if}}
   <PaperDialogContent>
 
@@ -26,25 +26,25 @@
       {{component
         @options.bodyComponent
         options=@options
-        progress=progress
-        done=done
-        overall=promisesCount}}
+        progress=this.progress
+        done=this.done
+        overall=this.promisesCount}}
     {{else}}
       <p>{{@options.body}}</p>
       <div class="layout-row layout-align-center">
         {{#if @options.circular}}
-          {{paper-progress-circular
-            value=progress
-            class=@options.circularClass
-            accent=@options.circularAccent
-            warn=@options.circularWarn
-            diameter=@options.circularDiameter
-            strokeRatio=@options.circularStrokeRatio}}
+          <PaperProgressCircular
+            @value={{this.progress}}
+            class={{this.options.circularClass}}
+            @accent={{this.options.circularAccent}}
+            @warn={{this.options.circularWarn}}
+            @diameter={{this.options.circularDiameter}}
+            @strokeRatio={{this.options.circularStrokeRatio}}/>
         {{else}}
-          {{paper-progress-linear
-            value=progress
-            accent=@options.linearAccent
-            warn=@options.linearWarn}}
+          <PaperProgressLinear
+            @value={{this.progress}}
+            @accent={{this.options.linearAccent}}
+            @warn={{this.options.linearWarn}}/>
         {{/if}}
       </div>
     {{/if}}
@@ -64,9 +64,9 @@
           @noInk={{@options.declineButtonNoInk}}
           @raised={{@options.declineButtonRaised}}
           @iconButton={{@options.declineButtonIcon}}
-          @onClick={{action "cancel"}}>
+          @onClick={{this.cancel}}>
           {{#if @options.declineButtonIcon}}
-            {{paper-icon @options.declineButtonIcon}}
+            <PaperIcon @icon={{@options.declineButtonIcon}}/>
           {{/if}}
           {{@options.cancel}}
         </PaperButton>
