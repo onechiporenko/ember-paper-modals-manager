@@ -1,12 +1,12 @@
 {{! BEGIN-SNIPPET components-custom-process-body.hbs }}
 <p>Custom Process Body Component</p>
-<p>{{@options.body}}</p>
+<p>{{this.options.body}}</p>
 <div class="layout-row layout-align-center">
-  {{paper-progress-circular
-    class=@options.circularClass
-    accent=@options.circularAccent
-    warn=@options.circularWarn
-    diameter=@options.circularDiameter
-    strokeRatio=@options.circularStrokeRatio}}
+  <PaperProgressCircular
+    class={{this.options.circularClass}}
+    @accent={{this.options.circularAccent}}
+    @warn={{this.options.circularWarn}}
+    @diameter={{this.options.circularDiameter}}
+    @strokeRatio={{this.options.circularStrokeRatio}}/>
 </div>
 {{! END-SNIPPET }}

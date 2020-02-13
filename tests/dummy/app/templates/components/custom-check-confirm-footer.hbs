@@ -1,12 +1,12 @@
 {{! BEGIN-SNIPPET components-custom-check-confirm-footer.hbs }}
 Custom Check Confirm Footer Component
 <PaperButton
-  @onClick={{action decline}}>
+  @onClick={{this.decline}}>
   Decline
 </PaperButton>
 <PaperButton
-  @disabled={{confirmDisabled}}
-  @onClick={{action confirm}}
+  @disabled={{this.confirmDisabled}}
+  @onClick={{this.confirm}}
   @type="primary">
   Confirm
 </PaperButton>

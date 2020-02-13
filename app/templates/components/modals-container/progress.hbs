@@ -1,74 +1,77 @@
 <PaperDialog
-  @fullscreen={{@options.fullscreen}}
-  @escapeToClose={{@options.escapeToClose}}
-  @opaque={{@options.opaque}}
-  @focusOnOpen={{@options.focusOnOpen}}
-  @clickOutsideToClose={{@options.clickOutsideToClose}}
-  @closeTo={{@options.closeTo}}
-  @openFrom={{@options.openFrom}}
-  @origin={{@options.origin}}
-  @parent={{@options.parent}}
-  @onClose={{action "decline"}}>
-  {{#if @options.titleComponent}}
+  @fullscreen={{this.options.fullscreen}}
+  @escapeToClose={{this.options.escapeToClose}}
+  @opaque={{this.options.opaque}}
+  @focusOnOpen={{this.options.focusOnOpen}}
+  @clickOutsideToClose={{this.options.clickOutsideToClose}}
+  @closeTo={{this.options.closeTo}}
+  @openFrom={{this.options.openFrom}}
+  @origin={{this.options.origin}}
+  @parent={{this.options.parent}}
+  @onClose={{this.decline}}>
+  {{#if this.options.titleComponent}}
     {{component
-      @options.titleComponent
-      options=@options
-      confirm=(action "confirm")
-      decline=(action "decline")}}
+      this.options.titleComponent
+      options=this.options
+      confirm=this.confirm
+      decline=this.decline
+    }}
   {{/if}}
   <PaperDialogContent>
 
-    {{#unless @options.titleComponent}}
-      <h2 class="md-title">{{@options.title}}</h2>
+    {{#unless this.options.titleComponent}}
+      <h2 class="md-title">{{this.options.title}}</h2>
     {{/unless}}
 
-    {{#if @options.bodyComponent}}
+    {{#if this.options.bodyComponent}}
       {{component
-        @options.bodyComponent
-        options=@options
-        progress=progress
-        done=done
-        overall=promisesCount}}
+        this.options.bodyComponent
+        options=this.options
+        progress=this.progress
+        done=this.done
+        overall=this.promisesCount
+      }}
     {{else}}
-      <p>{{@options.body}}</p>
+      <p>{{this.options.body}}</p>
       <div class="layout-row layout-align-center">
-        {{#if @options.circular}}
-          {{paper-progress-circular
-            value=progress
-            class=@options.circularClass
-            accent=@options.circularAccent
-            warn=@options.circularWarn
-            diameter=@options.circularDiameter
-            strokeRatio=@options.circularStrokeRatio}}
+        {{#if this.options.circular}}
+          <PaperProgressCircular
+            @value={{this.progress}}
+            class={{this.options.circularClass}}
+            @accent={{this.options.circularAccent}}
+            @warn={{this.options.circularWarn}}
+            @diameter={{this.options.circularDiameter}}
+            @strokeRatio={{this.options.circularStrokeRatio}}/>
         {{else}}
-          {{paper-progress-linear
-            value=progress
-            accent=@options.linearAccent
-            warn=@options.linearWarn}}
+          <PaperProgressLinear
+            @value={{this.progress}}
+            @accent={{this.options.linearAccent}}
+            @warn={{this.options.linearWarn}}/>
         {{/if}}
       </div>
     {{/if}}
   </PaperDialogContent>
   <PaperDialogActions class="layout-row">
     <span class="flex"></span>
-    {{#if @options.footerComponent}}
+    {{#if this.options.footerComponent}}
       {{component
-        @options.footerComponent
-        options=@options}}
+        this.options.footerComponent
+        options=this.options
+      }}
     {{else}}
-      {{#if @options.cancelable}}
+      {{#if this.options.cancelable}}
         <PaperButton
-          @primary={{@options.declineButtonPrimary}}
-          @fab={{@options.declineButtonFab}}
-          @mini={{@options.declineButtonMini}}
-          @noInk={{@options.declineButtonNoInk}}
-          @raised={{@options.declineButtonRaised}}
-          @iconButton={{@options.declineButtonIcon}}
-          @onClick={{action "cancel"}}>
-          {{#if @options.declineButtonIcon}}
-            {{paper-icon @options.declineButtonIcon}}
+          @primary={{this.options.declineButtonPrimary}}
+          @fab={{this.options.declineButtonFab}}
+          @mini={{this.options.declineButtonMini}}
+          @noInk={{this.options.declineButtonNoInk}}
+          @raised={{this.options.declineButtonRaised}}
+          @iconButton={{this.options.declineButtonIcon}}
+          @onClick={{this.cancel}}>
+          {{#if this.options.declineButtonIcon}}
+            <PaperIcon @icon={{this.options.declineButtonIcon}}/>
           {{/if}}
-          {{@options.cancel}}
+          {{this.options.cancel}}
         </PaperButton>
       {{/if}}
     {{/if}}
