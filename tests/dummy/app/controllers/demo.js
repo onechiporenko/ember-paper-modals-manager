@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { action, computed, get, set } from '@ember/object';
+import { action, computed, set } from '@ember/object';
 import { equal, not } from '@ember/object/computed';
 import { A } from '@ember/array';
 
@@ -14,7 +14,7 @@ export default class DemoController extends Controller {
 
   @computed('options')
   get stringifiedOptions() {
-    return JSON.stringify(get(this, 'options'), (k, v) => {
+    return JSON.stringify(this.options, (k, v) => {
       return typeof v === 'function' ? 'Function' : v;
     }, 2);
   }
@@ -60,7 +60,7 @@ export default class DemoController extends Controller {
   cancelable = false;
 
   addMessage(msg) {
-    get(this, 'messages').pushObject(msg);
+    this.messages.pushObject(msg);
   }
 
   generatePromiseFactoriesList(count) {
@@ -68,7 +68,7 @@ export default class DemoController extends Controller {
     for (let i = 0; i < count; i++) {
       list.push(() => new Promise(resolve => setTimeout(() => resolve(i), 300)));
     }
-    if (get(this, 'progressWillFail')) {
+    if (this.progressWillFail) {
       list.splice(2, 0, () => new Promise((resolve, reject) => setTimeout(() => reject('Promise was rejected'), 300)));
     }
     return A(list);
@@ -79,17 +79,17 @@ export default class DemoController extends Controller {
     const options = {
       title: 'Custom Alert Modal Title',
       body: 'Custom Alert Modal Body',
-      confirmButtonFab: get(this, 'confirmButtonFab'),
-      confirmButtonMini: get(this, 'confirmButtonMini'),
-      confirmButtonNoInk: get(this, 'confirmButtonNoInk'),
-      confirmButtonRaised: get(this, 'confirmButtonRaised'),
-      declineButtonFab: get(this, 'declineButtonFab'),
-      declineButtonMini: get(this, 'declineButtonMini'),
-      declineButtonNoInk: get(this, 'declineButtonNoInk'),
-      declineButtonRaised: get(this, 'declineButtonRaised')
+      confirmButtonFab: this.confirmButtonFab,
+      confirmButtonMini: this.confirmButtonMini,
+      confirmButtonNoInk: this.confirmButtonNoInk,
+      confirmButtonRaised: this.confirmButtonRaised,
+      declineButtonFab: this.declineButtonFab,
+      declineButtonMini: this.declineButtonMini,
+      declineButtonNoInk: this.declineButtonNoInk,
+      declineButtonRaised: this.declineButtonRaised
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .alert(options)
       .then(() => this.addMessage('Alert was confirmed'))
       .catch(() => this.addMessage('Alert was confirmed'));
@@ -100,17 +100,17 @@ export default class DemoController extends Controller {
     const options = {
       title: 'Custom Confirm Modal Title',
       body: 'Custom Confirm Modal Body',
-      confirmButtonFab: get(this, 'confirmButtonFab'),
-      confirmButtonMini: get(this, 'confirmButtonMini'),
-      confirmButtonNoInk: get(this, 'confirmButtonNoInk'),
-      confirmButtonRaised: get(this, 'confirmButtonRaised'),
-      declineButtonFab: get(this, 'declineButtonFab'),
-      declineButtonMini: get(this, 'declineButtonMini'),
-      declineButtonNoInk: get(this, 'declineButtonNoInk'),
-      declineButtonRaised: get(this, 'declineButtonRaised')
+      confirmButtonFab: this.confirmButtonFab,
+      confirmButtonMini: this.confirmButtonMini,
+      confirmButtonNoInk: this.confirmButtonNoInk,
+      confirmButtonRaised: this.confirmButtonRaised,
+      declineButtonFab: this.declineButtonFab,
+      declineButtonMini: this.declineButtonMini,
+      declineButtonNoInk: this.declineButtonNoInk,
+      declineButtonRaised: this.declineButtonRaised
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .confirm(options)
       .then(() => this.addMessage('Confirm was confirmed'))
       .catch(() => this.addMessage('Confirm was declined'));
@@ -122,18 +122,18 @@ export default class DemoController extends Controller {
       title: 'Custom Prompt Modal Title',
       body: 'Custom Prompt Modal Body',
       inputLabel: 'Input Label',
-      disallowEmpty: get(this, 'disallowEmptyPrompt'),
-      confirmButtonFab: get(this, 'confirmButtonFab'),
-      confirmButtonMini: get(this, 'confirmButtonMini'),
-      confirmButtonNoInk: get(this, 'confirmButtonNoInk'),
-      confirmButtonRaised: get(this, 'confirmButtonRaised'),
-      declineButtonFab: get(this, 'declineButtonFab'),
-      declineButtonMini: get(this, 'declineButtonMini'),
-      declineButtonNoInk: get(this, 'declineButtonNoInk'),
-      declineButtonRaised: get(this, 'declineButtonRaised')
+      disallowEmpty: this.disallowEmptyPrompt,
+      confirmButtonFab: this.confirmButtonFab,
+      confirmButtonMini: this.confirmButtonMini,
+      confirmButtonNoInk: this.confirmButtonNoInk,
+      confirmButtonRaised: this.confirmButtonRaised,
+      declineButtonFab: this.declineButtonFab,
+      declineButtonMini: this.declineButtonMini,
+      declineButtonNoInk: this.declineButtonNoInk,
+      declineButtonRaised: this.declineButtonRaised
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .prompt(options)
       .then(v => this.addMessage(`Prompt was confirmed (with "${v}")`))
       .catch(() => this.addMessage('Prompt was declined'));
@@ -146,17 +146,17 @@ export default class DemoController extends Controller {
       body: 'Please enter a "modal" without quotes',
       inputLabel: 'Input Label',
       promptValue: 'modal',
-      confirmButtonFab: get(this, 'confirmButtonFab'),
-      confirmButtonMini: get(this, 'confirmButtonMini'),
-      confirmButtonNoInk: get(this, 'confirmButtonNoInk'),
-      confirmButtonRaised: get(this, 'confirmButtonRaised'),
-      declineButtonFab: get(this, 'declineButtonFab'),
-      declineButtonMini: get(this, 'declineButtonMini'),
-      declineButtonNoInk: get(this, 'declineButtonNoInk'),
-      declineButtonRaised: get(this, 'declineButtonRaised')
+      confirmButtonFab: this.confirmButtonFab,
+      confirmButtonMini: this.confirmButtonMini,
+      confirmButtonNoInk: this.confirmButtonNoInk,
+      confirmButtonRaised: this.confirmButtonRaised,
+      declineButtonFab: this.declineButtonFab,
+      declineButtonMini: this.declineButtonMini,
+      declineButtonNoInk: this.declineButtonNoInk,
+      declineButtonRaised: this.declineButtonRaised
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .promptConfirm(options)
       .then(v => this.addMessage(`Prompt-Confirm was confirmed (with "${v}")`))
       .catch(() => this.addMessage('Prompt-Confirm was declined'));
@@ -168,17 +168,17 @@ export default class DemoController extends Controller {
       title: 'Custom Check Confirm Modal Title',
       body: 'Confirm your suggestion',
       inputLabel: 'Input Label',
-      confirmButtonFab: get(this, 'confirmButtonFab'),
-      confirmButtonMini: get(this, 'confirmButtonMini'),
-      confirmButtonNoInk: get(this, 'confirmButtonNoInk'),
-      confirmButtonRaised: get(this, 'confirmButtonRaised'),
-      declineButtonFab: get(this, 'declineButtonFab'),
-      declineButtonMini: get(this, 'declineButtonMini'),
-      declineButtonNoInk: get(this, 'declineButtonNoInk'),
-      declineButtonRaised: get(this, 'declineButtonRaised')
+      confirmButtonFab: this.confirmButtonFab,
+      confirmButtonMini: this.confirmButtonMini,
+      confirmButtonNoInk: this.confirmButtonNoInk,
+      confirmButtonRaised: this.confirmButtonRaised,
+      declineButtonFab: this.declineButtonFab,
+      declineButtonMini: this.declineButtonMini,
+      declineButtonNoInk: this.declineButtonNoInk,
+      declineButtonRaised: this.declineButtonRaised
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .checkConfirm(options)
       .then(() => this.addMessage(`Check-Confirm was confirmed`))
       .catch(() => this.addMessage('Check-Confirm was declined'));
@@ -190,27 +190,27 @@ export default class DemoController extends Controller {
       title: 'Progress Modal Title',
       body: '',
       promises: this.generatePromiseFactoriesList(5),
-      circular: get(this, 'progressCircular'),
-      circularAccent: get(this, 'accent'),
-      circularWarn: get(this, 'warn'),
-      circularDiameter: get(this, 'circularDiameter'),
-      circularStrokeRatio: get(this, 'circularStrokeRatio'),
-      linearAccent: get(this, 'accent'),
-      linearWarn: get(this, 'warn'),
-      settled: get(this, 'settled'),
-      cancelable: get(this, 'cancelable'),
-      declineButtonFab: get(this, 'declineButtonFab'),
-      declineButtonMini: get(this, 'declineButtonMini'),
-      declineButtonNoInk: get(this, 'declineButtonNoInk'),
-      declineButtonRaised: get(this, 'declineButtonRaised')
+      circular: this.progressCircular,
+      circularAccent: this.accent,
+      circularWarn: this.warn,
+      circularDiameter: this.circularDiameter,
+      circularStrokeRatio: this.circularStrokeRatio,
+      linearAccent: this.accent,
+      linearWarn: this.warn,
+      settled: this.settled,
+      cancelable: this.cancelable,
+      declineButtonFab: this.declineButtonFab,
+      declineButtonMini: this.declineButtonMini,
+      declineButtonNoInk: this.declineButtonNoInk,
+      declineButtonRaised: this.declineButtonRaised
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .progress(options)
       .then(v => this.addMessage(`Progress was finished (with ${JSON.stringify(v)})`))
       .catch(([result, error]) => {
         this.addMessage(`Progress was failed (completed ${JSON.stringify(result)}). Error - "${error}"`);
-        return get(this, 'modalsManager')
+        return this.modalsManager
           .alert({
             title: 'Something goes wrong',
             body: `Fulfilled - ${result}. Error - ${JSON.stringify(error)}`
@@ -223,16 +223,16 @@ export default class DemoController extends Controller {
     const options = {
       body: 'Some long process',
       title: '',
-      circularAccent: get(this, 'accent'),
-      circularWarn: get(this, 'warn'),
-      circularDiameter: get(this, 'circularDiameter'),
-      circularStrokeRatio: get(this, 'circularStrokeRatio'),
+      circularAccent: this.accent,
+      circularWarn: this.warn,
+      circularDiameter: this.circularDiameter,
+      circularStrokeRatio: this.circularStrokeRatio,
       process: () => new Promise((resolve, reject) => setTimeout(() => {
-        get(this, 'processWillFail') ? reject('some error') : resolve('some result');
+        this.processWillFail ? reject('some error') : resolve('some result');
       }, 3000))
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .process(options)
       .then(v => this.addMessage(`Process was confirmed (with ${v})`))
       .catch(e => this.addMessage(`Process was declined (with ${e})`));
@@ -246,7 +246,7 @@ export default class DemoController extends Controller {
       footerComponent: 'custom-alert-footer'
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .alert(options)
       .then(() => this.addMessage('Custom Alert was confirmed'));
   }
@@ -259,7 +259,7 @@ export default class DemoController extends Controller {
       footerComponent: 'custom-confirm-footer',
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .confirm(options)
       .then(() => this.addMessage('Custom Confirm was confirmed'))
       .catch(() => this.addMessage('Custom Confirm was declined'));
@@ -271,10 +271,10 @@ export default class DemoController extends Controller {
       titleComponent: 'custom-prompt-header',
       bodyComponent: 'custom-prompt-body',
       footerComponent: 'custom-prompt-footer',
-      disallowEmpty: get(this, 'disallowEmptyPrompt')
+      disallowEmpty: this.disallowEmptyPrompt
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .prompt(options)
       .then(v => this.addMessage(`Custom Prompt was confirmed (with "${v}")`))
       .catch(() => this.addMessage('Custom Prompt was declined'));
@@ -289,7 +289,7 @@ export default class DemoController extends Controller {
       promptValue: 'modal'
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .promptConfirm(options)
       .then(v => this.addMessage(`Custom Prompt-Confirm was confirmed (with "${v}")`))
       .catch(() => this.addMessage('Custom Prompt-Confirm was declined'));
@@ -305,7 +305,7 @@ export default class DemoController extends Controller {
       footerComponent: 'custom-check-confirm-footer'
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .checkConfirm(options)
       .then(() => this.addMessage(`Custom Check-Confirm was confirmed`))
       .catch(() => this.addMessage('Custom Check-Confirm was declined'));
@@ -320,23 +320,23 @@ export default class DemoController extends Controller {
       bodyComponent: 'custom-progress-body',
       footerComponent: 'custom-progress-footer',
       promises: this.generatePromiseFactoriesList(5),
-      circular: get(this, 'progressCircular'),
-      circularAccent: get(this, 'accent'),
-      circularWarn: get(this, 'warn'),
-      circularDiameter: get(this, 'circularDiameter'),
-      circularStrokeRatio: get(this, 'circularStrokeRatio'),
-      linearAccent: get(this, 'accent'),
-      linearWarn: get(this, 'warn'),
-      settled: get(this, 'settled'),
-      cancelable: get(this, 'cancelable')
+      circular: this.progressCircular,
+      circularAccent: this.accent,
+      circularWarn: this.warn,
+      circularDiameter: this.circularDiameter,
+      circularStrokeRatio: this.circularStrokeRatio,
+      linearAccent: this.accent,
+      linearWarn: this.warn,
+      settled: this.settled,
+      cancelable: this.cancelable
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .progress(options)
       .then((v) => this.addMessage(`Progress was finished (with ${JSON.stringify(v)})`))
       .catch(([result, error]) => {
         this.addMessage(`Progress was failed (completed ${JSON.stringify(result)}). Error - "${error}"`);
-        return get(this, 'modalsManager')
+        return this.modalsManager
           .alert({
             title: 'Something goes wrong',
             body: `Fulfilled - ${result}. Error - ${JSON.stringify(error)}`
@@ -352,16 +352,16 @@ export default class DemoController extends Controller {
       titleComponent: 'custom-process-header',
       bodyComponent: 'custom-process-body',
       footerComponent: 'custom-process-footer',
-      circularAccent: get(this, 'accent'),
-      circularWarn: get(this, 'warn'),
-      circularDiameter: get(this, 'circularDiameter'),
-      circularStrokeRatio: get(this, 'circularStrokeRatio'),
+      circularAccent: this.accent,
+      circularWarn: this.warn,
+      circularDiameter: this.circularDiameter,
+      circularStrokeRatio: this.circularStrokeRatio,
       process: () => new Promise((resolve, reject) => setTimeout(() => {
-        get(this, 'processWillFail') ? reject('some error') : resolve('some result');
+        this.processWillFail ? reject('some error') : resolve('some result');
       }, 3000))
     };
     set(this, 'options', options);
-    get(this, 'modalsManager')
+    this.modalsManager
       .process(options)
       .then(v => this.addMessage(`Process was confirmed (with ${v})`))
       .catch(e => this.addMessage(`Process was declined (with ${e})`));
