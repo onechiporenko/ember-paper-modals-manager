@@ -7424,10 +7424,10 @@ ember-modal-dialog@^3.0.0-beta.4:
     ember-ignore-children-helper "^1.0.1"
     ember-wormhole "^0.5.5"
 
-ember-modals-manager-internal@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ember-modals-manager-internal/-/ember-modals-manager-internal-2.0.0.tgz#199e22a76e117474e29cda37f394320f3e7996a5"
-  integrity sha512-5vNZD4udZ1XTFrxxFXCOxB31HdApPkGLuxyEn/O8VtNCsaosYobCmL/TJxdmE1c/ERo+vgJDREUsj+YXzSYXbg==
+ember-modals-manager-internal@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/ember-modals-manager-internal/-/ember-modals-manager-internal-2.0.4.tgz#d03cf2a16a3d1fe6a8898f0f8a6a4fc9e59d1bae"
+  integrity sha512-Gq8HVbaZFrTW8ao9OuuTWpN7g22Bdzubae4jigK1SA1m6f8Y3o8SldZOvwGmAgRYcPnTRwBPu816imXEI8OHTQ==
   dependencies:
     ember-angle-bracket-invocation-polyfill "^2.0.2"
     ember-cli-babel "^7.20.5"

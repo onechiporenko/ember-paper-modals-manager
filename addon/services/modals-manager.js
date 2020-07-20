@@ -1,9 +1,11 @@
-import ModalsManager from 'ember-modals-manager-internal/services/modals-manager';
+import EmmiModalsManager from 'ember-modals-manager-internal/services/emmi-modals-manager';
 
 /**
  * @class ModalsManager
  */
-export default class ModalsManagerService extends ModalsManager {
+export default class ModalsManagerService extends EmmiModalsManager {
+
+  modalsContainerPath = 'epmm-modals-container';
 
   /**
    * Shows custom modal

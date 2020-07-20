@@ -1,6 +1,6 @@
 {
   "name": "ember-paper-modals-manager",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Modals-manager for modals from ember-paper",
   "keywords": [
     "ember-addon",
@@ -29,7 +29,7 @@
     "ember-cli-babel": "^7.20.5",
     "ember-cli-htmlbars": "^5.1.2",
     "ember-decorators": "^6.1.1",
-    "ember-modals-manager-internal": "^2.0.0"
+    "ember-modals-manager-internal": "^2.0.4"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.3.0",
