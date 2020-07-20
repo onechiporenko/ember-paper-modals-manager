@@ -2,7 +2,7 @@
     "project": {
         "name": "ember-paper-modals-manager",
         "description": "The default blueprint for ember-cli addons.",
-        "version": "1.8.0.dc1d378a"
+        "version": "1.9.1.66ad1dc0"
     },
     "files": {
         "addon/services/modals-manager.js": {
@@ -33,7 +33,7 @@
     "classitems": [
         {
             "file": "addon/services/modals-manager.js",
-            "line": 8,
+            "line": 10,
             "description": "Shows custom modal",
             "itemtype": "method",
             "name": "show",
@@ -57,7 +57,7 @@
         },
         {
             "file": "addon/services/modals-manager.js",
-            "line": 17,
+            "line": 19,
             "description": "Shows `alert`-modal",
             "itemtype": "method",
             "name": "alert",
@@ -76,7 +76,7 @@
         },
         {
             "file": "addon/services/modals-manager.js",
-            "line": 25,
+            "line": 27,
             "description": "Shows `confirm`-modal",
             "itemtype": "method",
             "name": "confirm",
@@ -95,7 +95,7 @@
         },
         {
             "file": "addon/services/modals-manager.js",
-            "line": 33,
+            "line": 35,
             "description": "Shows `prompt`-modal",
             "itemtype": "method",
             "name": "prompt",
@@ -114,7 +114,7 @@
         },
         {
             "file": "addon/services/modals-manager.js",
-            "line": 41,
+            "line": 43,
             "description": "Shows `prompt-confirm`-modal",
             "itemtype": "method",
             "name": "promptConfirm",
@@ -133,7 +133,7 @@
         },
         {
             "file": "addon/services/modals-manager.js",
-            "line": 49,
+            "line": 51,
             "description": "Show `check-confirm`-modal",
             "itemtype": "method",
             "name": "checkConfirm",
@@ -152,7 +152,7 @@
         },
         {
             "file": "addon/services/modals-manager.js",
-            "line": 57,
+            "line": 59,
             "description": "Shows `progress`-modal",
             "itemtype": "method",
             "name": "progress",
@@ -171,7 +171,7 @@
         },
         {
             "file": "addon/services/modals-manager.js",
-            "line": 65,
+            "line": 67,
             "description": "Shows `process`-modal",
             "itemtype": "method",
             "name": "process",

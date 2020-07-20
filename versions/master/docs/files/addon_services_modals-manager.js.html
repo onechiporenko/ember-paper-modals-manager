@@ -17,7 +17,7 @@
                 <h1><img src="../assets/css/logo.png" title="ember-paper-modals-manager" width="117" height="52"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 1.8.0.dc1d378a</em>
+            <em>API Docs for: 1.9.1.66ad1dc0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -80,12 +80,14 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-import ModalsManager from &#x27;ember-modals-manager-internal/services/modals-manager&#x27;;
+import EmmiModalsManager from &#x27;ember-modals-manager-internal/services/emmi-modals-manager&#x27;;
 
 /**
  * @class ModalsManager
  */
-export default class ModalsManagerService extends ModalsManager {
+export default class ModalsManagerService extends EmmiModalsManager {
+
+  modalsContainerPath = &#x27;epmm-modals-container&#x27;;
 
   /**
    * Shows custom modal
