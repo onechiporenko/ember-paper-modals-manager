@@ -2,7 +2,7 @@
     "project": {
         "name": "ember-paper-modals-manager",
         "description": "The default blueprint for ember-cli addons.",
-        "version": "1.9.1.afcb4d37"
+        "version": "1.9.1.d1dba33a"
     },
     "files": {
         "addon/services/modals-manager.js": {
